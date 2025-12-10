@@ -8,24 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
-
- <link rel="icon" type="image/png" href="VAB REAL.png">
-
-<meta property="og:title" content="The Veteran Alliance Bank">
-<meta property="og:description" content="The Veteran Alliance Bank.">
-<meta property="og:image" content="https://the-vab.github.io/Test/VAB REAL.png">
-<meta property="og:image:width" content="1200"> 
-<meta property="og:image:height" content="630"> 
-<meta name="twitter:card" content="summary_large_image">
-
-
 </head>
 <body>
-    <div class="top-banner">
-        <div class="banner-content">
-            <span>Military-Grade Banking for Those Who Served</span>
-            </div>
-    </div>
 
     <header class="header">
         <nav class="nav">
@@ -45,7 +29,7 @@
                 </div>
                 <div class="nav-right">
                     <button class="btn btn-ghost">Sign in</button>
-                    <button class="btn btn-primary">JOIN_THE_ALLIANCE</button>
+                    <button class="btn btn-primary" style="background-color: var(--tac-navy);">JOIN_THE_ALLIANCE</button>
                     <button class="mobile-menu-toggle">
                         <span></span><span></span><span></span>
                     </button>
@@ -54,10 +38,10 @@
         </nav>
     </header>
 
-  <section class="hero">
+    <section class="hero">
         <div class="container">
             <div class="hero-grid">
-                <div class="hero-content" style="text-align: left;">
+                <div class="hero-content" style="text-align: left; align-items: flex-start;">
                     
                     <div class="hero-pill-badge">
                         <i class="fas fa-star" style="color: #FFD700; font-size: 0.8em;"></i>
@@ -73,11 +57,11 @@
                         We're the veterans who actually get it. No corporate BS, just real banking for real military life. We don't sleep... 'til the mission's complete.
                     </p>
 
-                    <div class="hero-form">
+                    <div class="hero-form" style="width: 100%;">
                         <form class="email-capture">
                             <div class="input-group">
                                 <input type="email" placeholder="Your military or civilian email" class="email-input" required>
-                                <button type="submit" class="btn btn-primary btn-large">JOIN THE ALLIANCE!</button>
+                                <button type="submit" class="btn btn-primary btn-large" style="background-color: var(--tac-navy);">JOIN THE ALLIANCE!</button>
                             </div>
                             <p class="form-disclaimer">
                                 No BS required • Real veterans answer the phones • We actually served
@@ -226,10 +210,8 @@
                         </blockquote>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4 class="author-name">Marcus Thompson</h4>
-                            <p class="author-title">U.S. Army, Founder - Veteran Defense Tech</p>
-                        </div>
+                        <h4 class="author-name">Marcus Thompson</h4>
+                        <p class="author-title">U.S. Army, Founder - Veteran Defense Tech</p>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -239,10 +221,8 @@
                         </blockquote>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4 class="author-name">Sarah Chen</h4>
-                            <p class="author-title">U.S. Air Force, Retired - Personal Banking</p>
-                        </div>
+                        <h4 class="author-name">Sarah Chen</h4>
+                        <p class="author-title">U.S. Air Force, Retired - Personal Banking</p>
                     </div>
                 </div>
                 <div class="testimonial-card">
@@ -252,10 +232,8 @@
                         </blockquote>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4 class="author-name">David Chen</h4>
-                            <p class="author-title">U.S. Air Force, President - AeroVet Industries</p>
-                        </div>
+                        <h4 class="author-name">David Chen</h4>
+                        <p class="author-title">U.S. Air Force, President - AeroVet Industries</p>
                     </div>
                 </div>
             </div>
@@ -286,14 +264,14 @@
                             <i class="fas fa-shield-alt"></i>
                             <span>The Veteran Alliance Bank</span>
                         </div>
-                        <p class="footer-description">
+                        <p style="color: #d1d5db; font-size: 0.9rem;">
                             The ONLY bank entirely staffed by US Military Veterans. Complete banking solutions for veterans and their businesses.
                         </p>
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <div class="social-links" style="display: flex; gap: 10px; margin-top: 20px;">
+                            <a href="#" class="social-link" style="color:white;"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link" style="color:white;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" style="color:white;"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link" style="color:white;"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -356,9 +334,11 @@
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 0) {
-                header.classList.add('scrolled');
+                header.style.background = "rgba(255,255,255,0.95)";
+                header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.05)";
             } else {
-                header.classList.remove('scrolled');
+                header.style.background = "transparent";
+                header.style.boxShadow = "none";
             }
         });
     </script>
