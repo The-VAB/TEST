@@ -1,22 +1,28 @@
-/* --- TACTICAL THEME VARIABLES --- */
-:root {
-    --tac-bg: #FDFDFB; /* Bone white */
-    --tac-dark: #1F291F; /* Dark Olive/Black */
-    --tac-green: #3A4A30; /* The Footer Green */
-    --tac-red: #B91C1C; /* Tactical Red */
-    --tac-blue: #0F172A; /* Navy Icon Color */
-    --tac-border: #E5E7EB;
-    --tac-font: 'Inter', sans-serif;
+/* --- RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* --- WRAPPER & BACKGROUND --- */
-.tactical-theme-wrapper {
-    font-family: var(--tac-font);
-    color: var(--tac-dark);
+:root {
+    --tac-bg: #FCFCFA; /* Bone White Background */
+    --tac-dark: #1F291F; /* Dark text */
+    --tac-navy: #0F172A; /* Icons and Header */
+    --tac-red: #B91C1C; /* Tactical Red Buttons */
+    --tac-green: #3A4A30; /* Footer Green */
+    --tac-sand: #F5F5F0; /* Ticker Background */
+    --tac-border: #E5E7EB;
+    --font-main: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
     background-color: var(--tac-bg);
-    /* Subtle Topography Pattern - You can replace URL with your own local file */
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+    color: var(--tac-dark);
     line-height: 1.6;
+    /* TOPOGRAPHY PATTERN - ESSENTIAL FOR THE LOOK */
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .container {
@@ -25,227 +31,96 @@
     padding: 0 20px;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
+a { text-decoration: none; color: inherit; transition: 0.2s; }
 
-.section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: var(--tac-dark);
-}
-
-.section-header p {
-    color: #52525B;
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* --- SECTION: GRID --- */
-.section-grid {
-    padding: 80px 0;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
-    gap: 20px;
-}
-
-.tac-card {
+/* --- HEADER & NAV --- */
+.header {
     background: #fff;
-    border: 1px solid var(--tac-border);
-    border-radius: 8px;
-    padding: 30px 24px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--tac-border);
+}
+
+.nav-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: transform 0.2s, box-shadow 0.2s;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.tac-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border-color: var(--tac-blue);
+.nav-left { display: flex; align-items: center; gap: 40px; }
+.logo-img { height: 40px; width: auto; }
+.nav-menu { display: flex; gap: 24px; }
+.nav-link { 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    color: #64748B; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;
 }
+.nav-link:hover { color: var(--tac-navy); }
 
-.icon-square {
-    width: 48px;
-    height: 48px;
-    background-color: var(--tac-blue);
-    border-radius: 6px;
-    margin-bottom: 24px;
-    flex-shrink: 0;
-}
+.nav-right { display: flex; gap: 15px; align-items: center; }
 
-.tac-card h3 {
-    font-size: 1.1rem;
+/* --- BUTTONS --- */
+.btn {
+    padding: 10px 20px;
     font-weight: 700;
-    margin: 0 0 12px 0;
-    color: var(--tac-dark);
-}
-
-.tac-card p {
-    font-size: 0.9rem;
-    color: #4B5563;
-    margin: 0 0 24px 0;
-    line-height: 1.5;
-}
-
-.tac-link {
-    margin-top: auto;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--tac-dark);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
-
-/* --- SECTION: TESTIMONIALS --- */
-.section-testimonials {
-    padding: 60px 0 100px 0;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.quote-card {
-    background: #fff;
-    border: 1px solid var(--tac-border);
-    border-radius: 8px;
-    padding: 40px 30px 30px 30px;
-    position: relative;
-    text-align: center;
-}
-
-/* The Red Pin */
-.pin-icon {
-    width: 12px;
-    height: 12px;
-    background-color: var(--tac-red);
-    border-radius: 50%;
-    position: absolute;
-    top: 15px; /* Half in, half out look */
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 0 4px #FEF2F2; /* Light red halo */
-}
-
-.quote-text {
-    font-style: italic;
-    color: #374151;
-    margin-bottom: 24px;
-    font-size: 0.95rem;
-}
-
-.author-block strong {
-    display: block;
-    color: var(--tac-dark);
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.author-block span {
     font-size: 0.8rem;
-    color: #6B7280;
-    display: block;
-    margin-top: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 4px;
 }
-
-/* --- SECTION: FOOTER CTA --- */
-.section-cta-green {
-    background-color: var(--tac-green);
-    padding: 100px 0;
-    text-align: center;
+.btn-primary {
+    background-color: var(--tac-navy);
     color: white;
+    border: none;
 }
-
-.section-cta-green h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1rem;
+.btn-ghost {
+    background: none;
+    border: none;
+    color: var(--tac-dark);
 }
-
-.section-cta-green p {
-    color: #E5E7EB;
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-    font-size: 1.1rem;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
 .btn-tac-red {
     background-color: var(--tac-red);
     color: white;
-    border: none;
     padding: 14px 28px;
+    border: none;
     font-weight: 700;
     font-size: 0.9rem;
     border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(185, 28, 28, 0.2);
+}
+.btn-tac-red:hover { background-color: #991B1B; }
+
+/* --- HERO SECTION --- */
+.hero { padding: 60px 0; }
+.hero-grid { display: flex; align-items: center; gap: 40px; }
+.hero-content { flex: 1; text-align: center; } 
+.hero-visual { flex: 1; display: flex; justify-content: center; }
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--tac-dark);
+    margin-bottom: 20px;
+}
+.hero-description {
+    font-size: 1.1rem;
+    color: #4B5563;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.btn-tac-red:hover {
-    background-color: #991B1B;
-}
-
-.btn-tac-outline {
-    background-color: transparent;
+/* 3D Card (Kept from your original) */
+.metal-card {
+    background: linear-gradient(135deg, #3A4A30, #1F291F);
     color: white;
-    border: 2px solid white;
-    padding: 12px 28px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 4px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: 0.3s;
+    width: 320px;
+    height: 200px;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
 }
-
-.btn-tac-outline:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-
-/* --- RESPONSIVE MEDIA QUERIES --- */
-@media (max-width: 1024px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 cols on tablet */
-    }
-}
-
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: 1fr; /* 1 col on mobile */
-    }
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    .btn-tac-red, .btn-tac-outline {
-        width: 100%;
-        max-width: 300px;
-    }
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-}
+.card-logo { position: absolute; top: 20px; right: 20px; font-weight: bold; font-size: 1.2
