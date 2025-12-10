@@ -1,6 +1,6 @@
 /* --- RESET & GLOBAL VARIABLES --- */
 :root {
-    --tac-bg: #FCFCFA;       /* Bone White */
+    --tac-bg: #FFFFFF;       /* Pure White base for lightness */
     --tac-dark: #1F291F;     /* Dark Olive/Black Text */
     --tac-navy: #0F172A;     /* Navy Blue Icons/Header */
     --tac-red: #B91C1C;      /* Tactical Red Buttons */
@@ -17,21 +17,13 @@ body {
     line-height: 1.6;
     margin: 0;
     color: var(--tac-dark);
+    background-color: var(--tac-bg);
 
-    /* --- FIXED BACKGROUND --- */
-    /* 1. Set the base off-white color */
-    background-color: var(--tac-bg); 
-
-    /* 2. Point to the saved image file */
-    /* Ensure the path 'images/topo-pattern.png' is correct for your folder structure */
-    background-image: url('images/topo-pattern.png');
-
-    /* 3. Ensure it tiles seamlessly horizontally and vertically */
+    /* --- FIXED LIGHTER TOPO BACKGROUND --- */
+    /* This SVG uses very faint stroke opacity (0.03) for a subtle look */
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 400px auto; 
     background-repeat: repeat;
-
-    /* 4. Keep original size for sharp lines */
-    background-size: auto;
-    /* ------------------------ */
 }
 
 .container {
@@ -73,7 +65,7 @@ ul { list-style: none; padding: 0; }
 }
 .nav-link:hover { color: var(--tac-navy); }
 
-/* Keep Dropdown functionality intact but style it cleaner */
+/* Dropdown Styles */
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -160,20 +152,18 @@ ul { list-style: none; padding: 0; }
 
 @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* --- PRODUCT GRID (Banking that doesn't suck) --- */
+/* --- PRODUCT GRID --- */
 .product-suite { padding: 80px 0; }
 .section-header { text-align: center; margin-bottom: 60px; }
 .section-title { font-size: 2.5rem; font-weight: 800; color: var(--tac-dark); margin-bottom: 1rem; }
 .section-subtitle { max-width: 700px; margin: 0 auto; color: #52525B; font-size: 1.1rem; }
 
-/* FORCE GRID TO 4 COLUMNS */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
-/* TRANSFORM EXISTING PRODUCT CARDS */
 .product-card {
     background: #fff;
     border: 1px solid var(--tac-border);
@@ -217,7 +207,7 @@ ul { list-style: none; padding: 0; }
 }
 .product-link i { font-size: 0.8rem; }
 
-/* --- TESTIMONIALS (The Red Pin Look) --- */
+/* --- TESTIMONIALS --- */
 .testimonials { padding: 60px 0; background: transparent; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
@@ -230,7 +220,6 @@ ul { list-style: none; padding: 0; }
     text-align: center;
 }
 
-/* ADDING THE RED PIN VIA CSS Pseudo-element */
 .testimonial-card::before {
     content: '';
     width: 12px;
@@ -246,24 +235,21 @@ ul { list-style: none; padding: 0; }
 
 .testimonial-content blockquote { font-style: italic; color: #374151; margin-bottom: 24px; border: none; padding: 0; }
 .testimonial-author { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.author-avatar { display: none; } /* Hide the circle avatar to match screenshot */
+.author-avatar { display: none; }
 .author-name { font-size: 0.95rem; font-weight: 800; color: var(--tac-dark); margin-bottom: 4px; }
 .author-title { font-size: 0.8rem; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; }
 
-/* --- CTA SECTION / FOOTER --- */
-/* Transform the ".cta-section" to look like the Footer Top */
+/* --- CTA SECTION --- */
 .cta-section {
     background-color: var(--tac-green);
     color: white;
     padding: 80px 0;
     text-align: center;
 }
-.cta-section::before { display: none; } /* Remove old pattern */
-
 .cta-title { font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; }
 .cta-description { color: #E5E7EB; max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; }
 
-/* BUTTONS */
+/* Buttons */
 .btn-primary {
     background-color: var(--tac-red);
     color: white;
@@ -289,11 +275,11 @@ ul { list-style: none; padding: 0; }
 }
 .btn-secondary:hover { background: rgba(255,255,255,0.1); }
 
-/* --- MAIN FOOTER --- */
+/* --- FOOTER --- */
 .footer {
     background-color: var(--tac-green);
     color: #D1D5DB;
-    padding-top: 0; /* Merge with CTA section visually */
+    padding-top: 0; 
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; padding: 60px 0; }
@@ -302,6 +288,33 @@ ul { list-style: none; padding: 0; }
 .footer-links a { display: block; margin-bottom: 0.75rem; color: #9CA3AF; font-size: 0.9rem; }
 .footer-links a:hover { color: white; }
 .footer-bottom { text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; }
+
+/* --- TACTICAL TOP BANNER (Styled & Close Button Removed) --- */
+.top-banner {
+    background-color: var(--tac-navy);
+    color: white;
+    padding: 14px 0;
+    position: relative;
+    border-bottom: 3px solid var(--tac-red);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 2000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center; /* Centered specifically */
+    align-items: center;
+}
+
+/* Remove close button logic */
+.banner-close { display: none; }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
@@ -318,70 +331,7 @@ ul { list-style: none; padding: 0; }
     .footer-content { grid-template-columns: 1fr; text-align: center; }
     .nav-container { padding: 0 15px; }
 }
-/* --- TACTICAL TOP BANNER --- */
-.top-banner {
-    background-color: var(--tac-navy); /* Dark Navy Background */
-    color: white;
-    padding: 14px 0;
-    position: relative;
-    border-bottom: 3px solid var(--tac-red); /* Tactical Red Border */
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    z-index: 2000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
 
-.banner-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    justify-content: center; /* Center the text */
-    align-items: center;
-    position: relative;
-}
-
-/* Add a cool icon before the text */
-.banner-content span::before {
-    content: '⚡'; /* Or use a FontAwesome icon if available */
-    margin-right: 10px;
-    color: #FFD700; /* Gold color for the icon */
-}
-
-/* The Close Button */
-.banner-close {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    line-height: 1;
-    padding: 4px 8px;
-    border-radius: 4px;
-    position: absolute;
-    right: 24px; /* Pins it to the right */
-    transition: 0.2s;
-}
-
-.banner-close:hover {
-    background-color: var(--tac-red);
-    border-color: var(--tac-red);
-}
-
-/* Mobile Adjustment for Banner */
-@media (max-width: 768px) {
-    .banner-content {
-        justify-content: flex-start;
-        padding-right: 60px; /* Space for close button */
-    }
-    .top-banner {
-        font-size: 0.75rem;
-    }
-}
-
-/* Customer Success Section (Beige Ticker Header) */
 .customer-success { background: var(--tac-sand); padding: 40px 0 0; text-align: center; }
 .customer-title { font-size: 1.25rem; font-weight: 800; color: var(--tac-dark); }
-.customer-subtitle { display: none; } /* Hide subtitle to match clean ticker look */
+.customer-subtitle { display: none; }
