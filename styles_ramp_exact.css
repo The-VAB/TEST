@@ -588,3 +588,79 @@ ul { list-style: none; padding: 0; }
         gap: 10px;
     }
 }
+/* --- BANKING FEATURES EXTRA STYLES --- */
+
+/* 1. The Checklist (Zero Liability, APY, etc.) */
+.feature-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+    text-align: left;
+    background: #F8FAFC; /* Very light grey/blue background */
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #E2E8F0;
+}
+
+.check-item {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--tac-navy); /* Navy text */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-item i {
+    color: var(--tac-red); /* Red Checkmarks */
+    font-size: 0.8rem;
+}
+
+/* 2. The Award Banner */
+.award-banner {
+    background: linear-gradient(to right, #1F2937, #111827); /* Dark Gray/Black Gradient */
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.award-icon {
+    font-size: 3rem;
+    color: #FFD700; /* Gold Trophy */
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.award-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.award-text strong {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+    color: #F3F4F6;
+}
+
+.award-text span {
+    font-size: 0.95rem;
+    color: #9CA3AF;
+}
+
+/* Responsive adjustment for Award Banner */
+@media (max-width: 768px) {
+    .award-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
