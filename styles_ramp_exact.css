@@ -1,12 +1,10 @@
 /* --- RESET & GLOBAL VARIABLES --- */
 :root {
-    --tac-bg: #FFFFFF;       /* Pure White base for lightness */
-    --tac-dark: #1F291F;     /* Dark Olive/Black Text */
-    --tac-navy: #0F172A;     /* Navy Blue Icons/Header */
-    --tac-red: #B91C1C;      /* Tactical Red Buttons */
-    --tac-green: #3A4630;    /* Footer Green */
-    --tac-sand: #F5F5F0;     /* Ribbon Background */
-    --tac-border: #E5E7EB;   /* Light Borders */
+    --tac-bg: #FFFFFF;
+    --tac-dark: #111827;     /* Darker black for headlines */
+    --tac-navy: #0F172A;     /* Navy Blue */
+    --tac-red: #B91C1C;
+    --tac-border: #E5E7EB;
     --font-main: 'Inter', sans-serif;
 }
 
@@ -14,330 +12,144 @@
 
 body {
     font-family: var(--font-main);
-    line-height: 1;
-    margin: 0;
     color: var(--tac-dark);
-    
-    /* Base background color */
+    margin: 0;
+    line-height: 1.6;
     background-color: var(--tac-bg);
 
-    /* --- FIXED: RESTORED IMAGE WITH LIGHTENING OVERLAY --- */
-    /* This stacks a 90% opaque white layer ON TOP of your image to fade it */
+    /* --- BACKGROUND FIX --- */
+    /* 1. Using your uploaded image filename 'topo-pattern.png' */
+    /* 2. Overlaid with 96% white so it's BARELY visible (subtle texture) */
     background-image: 
-        linear-gradient(rgba(252, 252, 250, 1.9), rgba(252, 252, 250, 0.97)),
-        url('images/topo-pattern.png');
-
+        linear-gradient(rgba(255, 255, 255, 1.9), rgba(255, 255, 255, 0.97)),
+        url('images/topo-pattern.png'); /* Ensure this file exists! */
+    
     background-repeat: repeat;
     background-size: auto;
-    background-attachment: fixed; /* Keeps pattern still while scrolling */
 }
 
-.container {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
+.container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; padding: 0; }
 
-/* --- HEADER & NAVIGATION --- */
-.header {
-    background: #fff;
-    border-bottom: 1px solid var(--tac-border);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* --- HEADER --- */
+.header { padding: 1.5rem 0; background: transparent; } /* Transparent header to blend */
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
 .nav-left { display: flex; align-items: center; gap: 3rem; }
-.logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 800; color: var(--tac-navy); font-size: 1.25rem; }
-.logo-img { height: 40px; width: auto; }
-
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; color: var(--tac-dark); }
+.logo-img { height: 32px; width: auto; }
 .nav-menu { display: flex; gap: 2rem; }
-.nav-link {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #4B5563;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-.nav-link:hover { color: var(--tac-navy); }
-
-/* Dropdown Styles */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: white;
-    border-top: 1px solid var(--tac-border);
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.2s;
-    z-index: 999;
-}
-.dropdown.active .dropdown-menu { opacity: 1; visibility: visible; }
-.dropdown-content { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-.dropdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-.dropdown-header { color: var(--tac-navy); font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-.dropdown-item { display: block; padding: 0.5rem; border-radius: 4px; }
-.dropdown-item:hover { background: var(--tac-sand); }
-.item-title { display: block; font-weight: 600; font-size: 0.9rem; color: var(--tac-dark); }
-.item-description { font-size: 0.8rem; color: #6B7280; }
-
+.nav-link { font-size: 0.85rem; font-weight: 600; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; }
 .nav-right { display: flex; gap: 1rem; align-items: center; }
 
 /* --- HERO SECTION --- */
-.hero { padding: 80px 0; }
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--tac-dark);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-}
-.hero-description { font-size: 1.125rem; color: #4B5563; max-width: 540px; margin-bottom: 2rem; }
+.hero { padding: 60px 0 100px 0; }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
 
-/* Hero Form & Badges */
-.email-capture .input-group { display: flex; gap: 10px; }
-.email-input { padding: 12px; border: 1px solid var(--tac-border); flex: 1; border-radius: 4px; }
-.hero-badge {
-    display: inline-block;
-    background: var(--tac-sand);
-    color: var(--tac-navy);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    border: 1px solid #E5E5E0;
-}
-
-/* 3D Card Visual */
-.card-showcase { perspective: 1000px; }
-.metal-card {
-    width: 380px;
-    height: 240px;
-    background: linear-gradient(135deg, #2C352C, #1a201a);
-    border-radius: 12px;
-    position: relative;
-    transform: rotateY(-10deg) rotateX(5deg);
-    box-shadow: 20px 20px 50px rgba(0,0,0,0.3);
-    color: white;
-    padding: 24px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-.card-logo { position: absolute; top: 24px; right: 24px; font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;}
-.card-chip { font-size: 2.5rem; color: #D4AF37; margin-top: 10px; }
-.card-number { font-family: monospace; font-size: 1.5rem; letter-spacing: 2px; margin-top: 40px; opacity: 0.9; }
-.card-details { display: flex; justify-content: space-between; margin-top: 30px; font-size: 0.8rem; letter-spacing: 1px; opacity: 0.8; }
-
-/* --- RIBBON (TICKER) --- */
-.veteran-business-ribbon {
-    background-color: var(--tac-sand);
-    padding: 2rem 0;
-    border-top: 1px solid #E5E5E0;
-    border-bottom: 1px solid #E5E5E0;
-    overflow: hidden;
-}
-.ribbon-track { display: flex; gap: 3rem; animation: scroll 40s linear infinite; }
-.ribbon-logos { display: flex; gap: 3rem; align-items: center; }
-.ribbon-item { opacity: 0.7; filter: grayscale(100%); transition: 0.3s; }
-.ribbon-item:hover { opacity: 1; filter: grayscale(0%); }
-.ribbon-logo-img { height: 40px; width: auto; object-fit: contain; }
-
-@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-/* --- PRODUCT GRID --- */
-.product-suite { padding: 80px 0; }
-.section-header { text-align: center; margin-bottom: 60px; }
-.section-title { font-size: 2.5rem; font-weight: 800; color: var(--tac-dark); margin-bottom: 1rem; }
-.section-subtitle { max-width: 700px; margin: 0 auto; color: #52525B; font-size: 1.1rem; }
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-
-.product-card {
-    background: #fff;
-    border: 1px solid var(--tac-border);
-    border-radius: 8px;
-    padding: 32px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-}
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-    border-color: var(--tac-navy);
-}
-
-.product-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--tac-navy);
-    color: white;
-    border-radius: 6px;
-    display: flex;
+/* The Navy Pill Badge */
+.hero-pill-badge {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    margin-bottom: 20px;
-}
-
-.product-title { font-size: 1.125rem; font-weight: 700; color: var(--tac-dark); margin-bottom: 12px; }
-.product-description { font-size: 0.9rem; color: #4B5563; margin-bottom: 24px; line-height: 1.5; flex: 1; }
-
-.product-link {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--tac-dark);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-.product-link i { font-size: 0.8rem; }
-
-/* --- TESTIMONIALS --- */
-.testimonials { padding: 60px 0; background: transparent; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-
-.testimonial-card {
-    background: #fff;
-    border: 1px solid var(--tac-border);
-    border-radius: 8px;
-    padding: 40px 30px 30px;
-    position: relative;
-    text-align: center;
-}
-
-.testimonial-card::before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background-color: var(--tac-red);
-    border-radius: 50%;
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 0 4px #FEF2F2;
-}
-
-.testimonial-content blockquote { font-style: italic; color: #374151; margin-bottom: 24px; border: none; padding: 0; }
-.testimonial-author { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.author-avatar { display: none; }
-.author-name { font-size: 0.95rem; font-weight: 800; color: var(--tac-dark); margin-bottom: 4px; }
-.author-title { font-size: 0.8rem; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; }
-
-/* --- CTA SECTION --- */
-.cta-section {
-    background-color: rgba(58, 70, 48, 0.92);
-    color: white;
-    padding: 80px 0;
-    text-align: center;
-}
-.cta-title { font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; }
-.cta-description { color: #E5E7EB; max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; }
-
-/* Buttons */
-.btn-primary {
-    background-color: var(--tac-red);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-.btn-primary:hover { background-color: #991B1B; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-
-.btn-secondary {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-    padding: 12px 28px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 4px;
-    margin-left: 1rem;
-}
-.btn-secondary:hover { background: rgba(255,255,255,0.1); }
-
-/* --- FOOTER --- */
-.footer {
-    background-color: var(--tac-green);
-    color: #D1D5DB;
-    padding-top: 0; 
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-.footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; padding: 60px 0; }
-.footer-logo { color: white; font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
-.footer-heading { color: white; font-weight: 700; margin-bottom: 1.5rem; }
-.footer-links a { display: block; margin-bottom: 0.75rem; color: #9CA3AF; font-size: 0.9rem; }
-.footer-links a:hover { color: white; }
-.footer-bottom { text-align: center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; }
-
-/* --- TACTICAL TOP BANNER (Styled & Close Button Removed) --- */
-.top-banner {
+    gap: 8px;
     background-color: var(--tac-navy);
     color: white;
-    padding: 14px 0;
-    position: relative;
-    border-bottom: 3px solid var(--tac-red);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 99px; /* Pill shape */
+    margin-bottom: 24px;
     letter-spacing: 0.05em;
-    z-index: 2000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.banner-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
+/* Typography */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--tac-dark);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: #4B5563;
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Form Styles */
+.email-capture .input-group { display: flex; gap: 12px; max-width: 480px; }
+.email-input { 
+    flex: 1; 
+    padding: 16px; 
+    border: 1px solid #D1D5DB; 
+    border-radius: 6px; 
+    background: #F9FAFB;
+    font-size: 1rem;
+}
+.form-disclaimer {
+    font-size: 0.75rem;
+    color: #6B7280;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+/* Button */
+.btn-primary {
+    background-color: var(--tac-navy); /* Matches screenshot blue */
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+.btn-primary:hover { background-color: #1E293B; }
+.btn-ghost { background: none; border: none; font-weight: 600; cursor: pointer; }
+
+/* Stats Row */
+.hero-stats {
     display: flex;
-    justify-content: center; /* Centered specifically */
-    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid #F3F4F6; /* Light separator line */
 }
+.stat-item { display: flex; flex-direction: column; }
+.stat-number { font-size: 1.5rem; font-weight: 800; color: var(--tac-dark); }
+.stat-label { font-size: 0.85rem; color: #6B7280; font-weight: 500; margin-top: 4px; }
 
-/* Remove close button logic */
-.banner-close { display: none; }
+/* 3D Card (UNCHANGED) */
+.card-showcase { perspective: 1000px; display: flex; justify-content: center; }
+.metal-card {
+    width: 400px;
+    height: 250px;
+    background: linear-gradient(135deg, #4b5320, #2C352C); /* Army Green Tone */
+    border-radius: 16px;
+    position: relative;
+    transform: rotateY(-15deg) rotateX(10deg);
+    box-shadow: 25px 25px 60px rgba(0,0,0,0.25);
+    color: white;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.card-logo { position: absolute; top: 24px; right: 24px; font-weight: 700; display: flex; gap: 8px; }
+.card-chip { font-size: 2.5rem; color: #D4AF37; margin-top: 20px; opacity: 0.9; }
+.card-number { font-family: monospace; font-size: 1.4rem; letter-spacing: 3px; margin-top: 50px; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+.card-details { display: flex; justify-content: space-between; margin-top: 30px; font-size: 0.75rem; letter-spacing: 1px; opacity: 0.8; font-weight: 600; }
 
-/* --- RESPONSIVE --- */
+/* Responsive */
 @media (max-width: 1024px) {
-    .product-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-grid { grid-template-columns: 1fr; text-align: center; }
-    .hero-visual { order: -1; margin-bottom: 40px; }
-    .footer-content { grid-template-columns: 1fr 1fr; }
+    .hero-content { text-align: center !important; display: flex; flex-direction: column; align-items: center; }
+    .email-capture .input-group { margin: 0 auto; }
+    .hero-stats { justify-content: center; }
+    .nav-menu { display: none; }
 }
-@media (max-width: 768px) {
-    .product-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .nav-menu, .nav-right .btn { display: none; }
-    .mobile-menu-toggle { display: flex; }
-    .footer-content { grid-template-columns: 1fr; text-align: center; }
-    .nav-container { padding: 0 15px; }
-}
-
-.customer-success { background: var(--tac-sand); padding: 40px 0 0; text-align: center; }
-.customer-title { font-size: 1.25rem; font-weight: 800; color: var(--tac-dark); }
-.customer-subtitle { display: none; }
