@@ -109,30 +109,72 @@ ul { list-style: none; padding: 0; }
 .email-input { padding: 14px; border: 1px solid var(--tac-border); flex: 1; border-radius: 6px; background: #F9FAFB; font-size: 1rem; }
 .form-disclaimer { font-size: 0.75rem; color: #6B7280; margin-top: 12px; font-weight: 500; }
 
-/* 3D Card Visual (Unchanged) */
-.card-showcase { perspective: 1000px; display: flex; justify-content: center; }
-/* Find this block in your CSS */
+/* --- INTERACTIVE METAL CARD --- */
+.card-showcase { 
+    perspective: 1000px; 
+    display: flex; 
+    justify-content: center;
+    /* Add padding to ensure hover doesn't clip */
+    padding: 20px; 
+}
+
 .metal-card {
     width: 400px;
     height: 250px;
     
-    /* --- REVERTED BACK TO ORIGINAL DARKER GRADIENT --- */
-    background: linear-gradient(135deg, #2C352C, #1a201a); 
-    /* -------------------------------------------------- */
-
+    /* Original Dark Gradient */
+    background: linear-gradient(135deg, #2C352C, #1a201a) !important;
+    
     border-radius: 16px;
     position: relative;
+    
+    /* Initial 3D State */
     transform: rotateY(-15deg) rotateX(10deg);
-    box-shadow: 25px 25px 60px rgba(0,0,0,0.5);
+    box-shadow: 25px 25px 60px rgba(0,0,0,0.25);
+    
     color: white;
     padding: 24px;
-    border: 2px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.15);
+    
+    /* Smooth Animation Settings */
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    overflow: hidden; /* Needed for the shine effect */
 }
+
+/* --- HOVER STATE --- */
+.metal-card:hover {
+    /* Rotates to face user, lifts up, and scales slightly */
+    transform: rotateY(0deg) rotateX(0deg) translateY(-10px) scale(1.02);
+    /* Shadow gets deeper and moves down to simulate lifting */
+    box-shadow: 0 40px 70px rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.3);
+}
+
+/* --- METALLIC SHINE EFFECT --- */
+.metal-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1) 50%, transparent);
+    transform: skewX(-25deg);
+    transition: none; /* Hidden by default */
+}
+
+.metal-card:hover::after {
+    /* The shine moves across the card on hover */
+    left: 150%;
+    transition: all 0.8s ease-in-out;
+}
+
+/* Inner Elements (unchanged) */
 .card-logo { position: absolute; top: 24px; right: 24px; font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;}
 .card-chip { font-size: 2.5rem; color: #D4AF37; margin-top: 20px; opacity: 0.9; }
 .card-number { font-family: monospace; font-size: 1.4rem; letter-spacing: 3px; margin-top: 50px; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
 .card-details { display: flex; justify-content: space-between; margin-top: 30px; font-size: 0.75rem; letter-spacing: 1px; opacity: 0.8; font-weight: 600; }
-
 /* --- RIBBON (TICKER) --- */
 .veteran-business-ribbon {
     background-color: var(--tac-sand);
