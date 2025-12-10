@@ -309,6 +309,68 @@ ul { list-style: none; padding: 0; }
     .footer-content { grid-template-columns: 1fr; text-align: center; }
     .nav-container { padding: 0 15px; }
 }
+/* --- TACTICAL TOP BANNER --- */
+.top-banner {
+    background-color: var(--tac-navy); /* Dark Navy Background */
+    color: white;
+    padding: 14px 0;
+    position: relative;
+    border-bottom: 3px solid var(--tac-red); /* Tactical Red Border */
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 2000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center; /* Center the text */
+    align-items: center;
+    position: relative;
+}
+
+/* Add a cool icon before the text */
+.banner-content span::before {
+    content: '⚡'; /* Or use a FontAwesome icon if available */
+    margin-right: 10px;
+    color: #FFD700; /* Gold color for the icon */
+}
+
+/* The Close Button */
+.banner-close {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 24px; /* Pins it to the right */
+    transition: 0.2s;
+}
+
+.banner-close:hover {
+    background-color: var(--tac-red);
+    border-color: var(--tac-red);
+}
+
+/* Mobile Adjustment for Banner */
+@media (max-width: 768px) {
+    .banner-content {
+        justify-content: flex-start;
+        padding-right: 60px; /* Space for close button */
+    }
+    .top-banner {
+        font-size: 0.75rem;
+    }
+}
 
 /* Customer Success Section (Beige Ticker Header) */
 .customer-success { background: var(--tac-sand); padding: 40px 0 0; text-align: center; }
