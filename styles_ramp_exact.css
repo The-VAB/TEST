@@ -361,3 +361,140 @@ ul { list-style: none; padding: 0; }
     justify-content: center;
     align-items: center;
 }
+/* --- PERSONAL BANKER SECTION --- */
+.personal-banker-section {
+    padding: 80px 0;
+}
+
+.banker-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.banker-card {
+    background: #fff;
+    border: 1px solid var(--tac-border); /* Standard light border */
+    border-radius: 8px;
+    padding: 40px 30px 30px;
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease;
+    /* Added subtle beige background to card body per screenshot */
+    background-color: #FFFEFA; 
+}
+
+.banker-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--tac-navy);
+}
+
+/* Red Number Badge (Top Left) */
+.step-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--tac-red);
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Navy Icon Circle */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background-color: var(--tac-navy);
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.banker-card h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--tac-dark);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.banker-card p {
+    font-size: 0.9rem;
+    color: #4B5563;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    height: 60px; /* Forces alignment */
+}
+
+/* The 3 Sub-items list */
+.banker-sub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.banker-sub-list span {
+    display: block;
+    background: #FDFDF8;
+    border: 1px solid #E5E5E0; /* Beige/Sand border */
+    padding: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--tac-dark);
+    border-radius: 4px;
+}
+
+/* Green Banner Bar */
+.no-call-center-banner {
+    background-color: var(--tac-green); /* Uses your dark green var */
+    color: white;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.status-light {
+    width: 12px;
+    height: 12px;
+    background-color: #4ADE80; /* Bright green light */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .banker-grid {
+        grid-template-columns: 1fr;
+    }
+    .banker-card p {
+        height: auto;
+    }
+    .no-call-center-banner {
+        font-size: 0.75rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
