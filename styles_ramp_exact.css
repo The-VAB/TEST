@@ -14,7 +14,7 @@
 
 body {
     font-family: var(--font-main);
-    line-height: 1.6;
+    line-height: 1;
     margin: 0;
     color: var(--tac-dark);
     
@@ -24,7 +24,7 @@ body {
     /* --- FIXED: RESTORED IMAGE WITH LIGHTENING OVERLAY --- */
     /* This stacks a 90% opaque white layer ON TOP of your image to fade it */
     background-image: 
-        linear-gradient(rgba(252, 252, 250, 0.95), rgba(252, 252, 250, 0.9)),
+        linear-gradient(rgba(252, 252, 250, 0.95), rgba(252, 252, 250, 0.97)),
         url('images/topo-pattern.png');
 
     background-repeat: repeat;
