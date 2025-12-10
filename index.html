@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veteran American Bank - Financial Services for Heroes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="banner-content">
+            <span>🎖️ Veteran-Owned & Operated | Serving Those Who Served</span>
+            <button class="banner-close" onclick="this.parentElement.parentElement.style.display='none'">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <a href="#" class="logo">
+                        <img src="https://picsum.photos/seed/vablogo/32/32.jpg" alt="VAB Logo" class="logo-image">
+                        Veteran American Bank
+                    </a>
+                    <div class="nav-menu" id="navMenu">
+                        <a href="#personal" class="nav-link">Personal Banking</a>
+                        <div class="dropdown" id="businessDropdown">
+                            <button class="nav-link dropdown-toggle" onclick="toggleDropdown('businessDropdown')">
+                                Business Banking
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-grid">
+                                        <div class="dropdown-column">
+                                            <div class="dropdown-header">
+                                                <i class="fas fa-building"></i>
+                                                Business Accounts
+                                            </div>
+                                            <div class="dropdown-list">
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">Business Checking</span>
+                                                    <span class="item-description">Free checking for small businesses</span>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">Business Savings</span>
+                                                    <span class="item-description">High-yield savings accounts</span>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">Business Money Market</span>
+                                                    <span class="item-description">Flexible access to funds</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-column">
+                                            <div class="dropdown-header">
+                                                <i class="fas fa-credit-card"></i>
+                                                Business Services
+                                            </div>
+                                            <div class="dropdown-list">
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">Business Credit Cards</span>
+                                                    <span class="item-description">Rewards for business expenses</span>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">Merchant Services</span>
+                                                    <span class="item-description">Payment processing solutions</span>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">Payroll Services</span>
+                                                    <span class="item-description">Streamlined payroll management</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-column">
+                                            <div class="dropdown-header">
+                                                <i class="fas fa-handshake"></i>
+                                                Business Lending
+                                            </div>
+                                            <div class="dropdown-list">
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">Business Loans</span>
+                                                    <span class="item-description">Growth capital for veterans</span>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">SBA Loans</span>
+                                                    <span class="item-description">Government-backed financing</span>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <span class="item-title">Equipment Financing</span>
+                                                    <span class="item-description">Upgrade your business equipment</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-column">
+                                            <div class="dropdown-cta">
+                                                <div class="cta-content">
+                                                    <h3>Veteran Business Advantage</h3>
+                                                    <p>Special rates and benefits for veteran-owned businesses</p>
+                                                    <button class="btn btn-primary btn-large">Learn More</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#loans" class="nav-link">Loans & Credit</a>
+                        <a href="#investments" class="nav-link">Investments</a>
+                        <a href="#resources" class="nav-link">Veteran Resources</a>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <button class="btn btn-secondary">Sign In</button>
+                    <button class="btn btn-primary">Open Account</button>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Customer Success Section -->
+    <section class="customer-success">
+        <div class="container">
+            <div class="customer-header">
+                <h2 class="customer-title">Trusted by Over 50,000 Veterans and Their Families</h2>
+                <p class="customer-subtitle">Join thousands of heroes who've chosen Veteran American Bank for their financial needs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Veteran Business Ribbon -->
+    <section class="veteran-business-ribbon">
+        <div class="ribbon-container">
+            <div class="ribbon-track">
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <i class="fas fa-medal"></i>
+                        <span>VA Approved</span>
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <img src="https://picsum.photos/seed/dodlogo/120/60.jpg" alt="DoD" class="ribbon-logo-img">
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>VA Benefits Partner</span>
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <img src="https://picsum.photos/seed/vfwlogo/120/60.jpg" alt="VFW" class="ribbon-logo-img">
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <i class="fas fa-star"></i>
+                        <span>Military Star</span>
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <img src="https://picsum.photos/seed/americanlegion/120/60.jpg" alt="American Legion" class="ribbon-logo-img">
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <i class="fas fa-flag-usa"></i>
+                        <span>USAA Partner</span>
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <img src="https://picsum.photos/seed/veteransaffairs/120/60.jpg" alt="Veterans Affairs" class="ribbon-logo-img">
+                    </div>
+                </div>
+                <!-- Duplicate for continuous scroll -->
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <i class="fas fa-medal"></i>
+                        <span>VA Approved</span>
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <img src="https://picsum.photos/seed/dodlogo/120/60.jpg" alt="DoD" class="ribbon-logo-img">
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>VA Benefits Partner</span>
+                    </div>
+                </div>
+                <div class="ribbon-item">
+                    <div class="veteran-logo">
+                        <img src="https://picsum.photos/seed/vfwlogo/120/60.jpg" alt="VFW" class="ribbon-logo-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Military-Exclusive Banking Benefits</span>
+                    </div>
+                    <h1 class="hero-title">Banking Built for Those Who Serve</h1>
+                    <p class="hero-description">Experience financial services designed specifically for veterans, active duty military, and their families. No hidden fees, just honest banking.</p>
+                    <div class="hero-form">
+                        <div class="email-capture">
+                            <div class="input-group">
+                                <input type="email" class="email-input" placeholder="Enter your email address">
+                                <button class="btn btn-primary btn-large">Get Started</button>
+                            </div>
+                            <p class="form-disclaimer">By signing up, you agree to receive communications from Veteran American Bank.</p>
+                        </div>
+                    </div>
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <div class="trust-number">$2.5B+</div>
+                            <div class="trust-label">Assets Managed</div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-number">50K+</div>
+                            <div class="trust-label">Veteran Members</div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-number">98%</div>
+                            <div class="trust-label">Customer Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image">
+                        <div class="card-showcase">
+                            <div class="metal-card">
+                                <div class="card-design">
+                                    <div class="card-chip">
+                                        <i class="fas fa-microchip"></i>
+                                    </div>
+                                    <div class="card-logo">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>VAB</span>
+                                    </div>
+                                    <div class="card-number">
+                                        <span>4242</span>
+                                        <span>••••</span>
+                                        <span>••••</span>
+                                        <span>8181</span>
+                                    </div>
+                                    <div class="card-details">
+                                        <div class="card-name">VETERAN CARDHOLDER</div>
+                                        <div class="card-expiry">EXP 08/26</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Banking Section -->
+    <section class="personal-banking-section" id="personal">
+        <div class="container">
+            <div class="personal-banking-infographic">
+                <div class="infographic-container">
+                    <div class="infographic-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <div class="step-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3 class="step-title">Secure Your Account</h3>
+                            <p class="step-description">Military-grade security with 24/7 monitoring and fraud protection designed for your peace of mind.</p>
+                            <div class="step-benefits">
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Zero Liability Protection</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Biometric Authentication</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-connector">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    <div class="infographic-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <div class="step-icon">
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                            <h3 class="step-title">Grow Your Savings</h3>
+                            <p class="step-description">Higher interest rates and special programs for military families to build your financial future.</p>
+                            <div class="step-benefits">
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>2.5% APY on Savings</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>No Monthly Fees</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-connector">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    <div class="infographic-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <div class="step-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="step-title">Bank Anywhere</h3>
+                            <p class="step-description">Award-winning mobile banking app designed for deployment and frequent relocations.</p>
+                            <div class="step-benefits">
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Mobile Check Deposit</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Bill Pay Automation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infographic-summary">
+                    <div class="summary-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4>Veteran Banking Excellence Award 2024</h4>
+                    <div>
+                        Recognized as the #1 bank for military personnel by Military Times
+                    </div>
+                </div>
+            </div>
+            <div class="personal-banking-cta">
+                <h3 class="cta-title">Ready to Experience Better Banking?</h3>
+                <p class="cta-description">Join thousands of veterans who trust us with their financial future. No hidden fees, transparent terms, and dedicated support for military families.</p>
+                <button class="btn btn-primary btn-large">Open Your Account Today</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Suite Section -->
+    <section class="product-suite">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Complete Financial Solutions</h2>
+                <p class="section-subtitle">Everything you need to manage your finances, all in one place</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="product-title">Checking Accounts</h3>
+                    <p class="product-description">Free checking with no minimum balance requirements and unlimited transactions.</p>
+                    <a href="#" class="product-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="product-title">Savings & CDs</h3>
+                    <p class="product-description">High-yield savings accounts and competitive CD rates for your goals.</p>
+                    <a href="#" class="product-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="product-title">VA Home Loans</h3>
+                    <p class="product-description">Specialized VA loan programs with competitive rates and expert guidance.</p>
+                    <a href="#" class="product-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="product-title">Auto Loans</h3>
+                    <p class="product-description">Flexible auto financing with rates tailored for military personnel.</p>
+                    <a href="#" class="product-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="product-title">Credit Cards</h3>
+                    <p class="product-description">Rewards cards with no annual fee and military-specific benefits.</p>
+                    <a href="#" class="product-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="product-title">Student Loans</h3>
+                    <p class="product-description">Education financing for military families and dependents.</p>
+                    <a href="#" class="product-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="product-title">Insurance</h3>
+                    <p class="product-description">Comprehensive insurance solutions designed for military life.</p>
+                    <a href="#" class="product-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="product-title">Investment</h3>
+                    <p class="product-description">Wealth management and investment services for long-term growth.</p>
+                    <a href="#" class="product-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Stories from Our Veterans</h2>
+                <p class="section-subtitle">Hear from those who've made Veteran American Bank their financial partner</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <blockquote>
+                            "After 20 years in the Army, I needed a bank that understood my unique financial situation. VAB provided exceptional service and helped me transition smoothly to civilian life."
+                        </blockquote>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Sgt. Michael Rodriguez</h4>
+                            <p class="author-title">U.S. Army Retired</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <blockquote>
+                            "The VA loan process was seamless with VAB. Their team walked me through every step and made buying our first home as a military family stress-free."
+                        </blockquote>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Lt. Sarah Chen</h4>
+                            <p class="author-title">U.S. Navy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <blockquote>
+                            "As a veteran business owner, I appreciate the special programs and understanding VAB provides. They've been instrumental in helping my business grow."
+                        </blockquote>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Capt. James Thompson</h4>
+                            <p class="author-title">U.S. Marine Corps Veteran</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Join the VAB Family?</h2>
+                <p class="cta-description">Experience banking that honors your service and supports your financial future</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-large">Open Account Now</button>
+                    <button class="btn btn-secondary btn-large">Schedule Consultation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="https://picsum.photos/seed/vablogowhite/32/32.jpg" alt="VAB Logo" class="footer-logo-image">
+                        Veteran American Bank
+                    </div>
+                    <p class="footer-description">
+                        Serving those who served with honor, integrity, and excellence in banking. Member FDIC. Equal Housing Lender.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-heading">Personal Banking</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Checking Accounts</a></li>
+                        <li><a href="#">Savings Accounts</a></li>
+                        <li><a href="#">Credit Cards</a></li>
+                        <li><a href="#">Personal Loans</a></li>
+                        <li><a href="#">Mortgages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-heading">Business Banking</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Business Checking</a></li>
+                        <li><a href="#">Business Loans</a></li>
+                        <li><a href="#">Merchant Services</a></li>
+                        <li><a href="#">Treasury Management</a></li>
+                        <li><a href="#">SBA Lending</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Veteran Benefits</a></li>
+                        <li><a href="#">Financial Education</a></li>
+                        <li><a href="#">Military Relocation</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-heading">About Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Leadership Team</a></li>
+                        <li><a href="#">Community Impact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Veteran American Bank. All rights reserved. | Privacy Policy | Terms of Service | Disclosures</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            navMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        }
+
+        // Dropdown toggle
+        function toggleDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            const allDropdowns = document.querySelectorAll('.dropdown');
+            
+            // Close all other dropdowns
+            allDropdowns.forEach(d => {
+                if (d.id !== dropdownId) {
+                    d.classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
