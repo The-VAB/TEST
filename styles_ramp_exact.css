@@ -247,7 +247,7 @@ ul { list-style: none; padding: 0; }
 
 /* --- CTA SECTION --- */
 .cta-section {
-    background-color: var(--tac-green);
+    background-color: rgba(58, 70, 48, 0.92);
     color: white;
     padding: 80px 0;
     text-align: center;
