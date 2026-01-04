@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VA EHL Application - The Veteran Alliance Bank</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- RESET & GLOBAL VARIABLES --- */
+        :root {
+            --tac-bg: #FCFCFA;
+            --tac-dark: #1F291F;
+            --tac-navy: #0F172A;
+            --tac-red: #B91C1C;
+            --tac-green: #3A4630;
+            --tac-sand: #F5F5F0;
+            --tac-border: #E5E7EB;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--tac-dark);
+            background-color: var(--tac-bg);
+            background-image: 
+                linear-gradient(rgba(252, 252, 250, 0.95), rgba(252, 252, 250, 0.95)),
+                repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(0,0,0,.03) 35px, rgba(0,0,0,.03) 36px),
+                repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(0,0,0,.03) 35px, rgba(0,0,0,.03) 36px);
+            background-attachment: fixed;
+        }
+
+        /* --- TOP BANNER --- */
+        .top-banner {
+            background: linear-gradient(135deg, var(--tac-navy), var(--tac-green));
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--tac-border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            color: var(--tac-navy);
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+            color: var(--tac-red);
+        }
+
+        /* --- MAIN LAYOUT --- */
+        .application-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* --- LEFT SIDE: FORM --- */
+        .form-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-header {
+            margin-bottom: 32px;
+        }
+
+        .form-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--tac-navy);
+            margin-bottom: 12px;
+        }
+
+        .form-header p {
+            color: #6B7280;
+            font-size: 1rem;
+        }
+
+        .page-indicator {
+            display: inline-block;
+            background: var(--tac-navy);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--tac-dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: var(--tac-red);
+            margin-left: 4px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--tac-border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-main);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--tac-navy);
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .help-text {
+            font-size: 0.85rem;
+            color: #6B7280;
+            margin-top: 6px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+            padding: 16px;
+            background: var(--tac-sand);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-main);
+        }
+
+        .btn-primary {
+            background-color: var(--tac-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #991B1B;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(185, 28, 28, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--tac-navy);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1E293B;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: var(--tac-navy);
+            border: 2px solid var(--tac-navy);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--tac-navy);
+            color: white;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .api-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: #ECFDF5;
+            color: #065F46;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .api-status i {
+            color: #10B981;
+        }
+
+        /* --- RIGHT SIDE: PROPERTY INFO (FIXED) --- */
+        .property-panel {
+            position: sticky;
+            top: 100px;
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .property-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #E5E7EB, #D1D5DB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .property-image .placeholder {
+            text-align: center;
+            color: #6B7280;
+        }
+
+        .property-image .placeholder i {
+            font-size: 4rem;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .property-details {
+            padding: 24px;
+        }
+
+        .property-address {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--tac-navy);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--tac-border);
+        }
+
+        .info-section {
+            margin-bottom: 24px;
+        }
+
+        .info-section h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--tac-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: #6B7280;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 0.9rem;
+            color: var(--tac-dark);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .property-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--tac-border);
+        }
+
+        .spec-item {
+            text-align: center;
+            padding: 12px;
+            background: var(--tac-sand);
+            border-radius: 8px;
+        }
+
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--tac-navy);
+            display: block;
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .property-features {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--tac-border);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #F3F4F6;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--tac-dark);
+        }
+
+        .feature-tag i {
+            color: var(--tac-red);
+            font-size: 0.9rem;
+        }
+
+        /* --- PROGRESS INDICATOR --- */
+        .progress-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--tac-sand);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            right: 60px;
+            height: 2px;
+            background: #D1D5DB;
+            z-index: 0;
+        }
+
+        .progress-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--tac-red);
+            transition: width 0.3s ease;
+        }
+
+        .progress-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-step .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #D1D5DB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-weight: 700;
+            color: #6B7280;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active .step-number {
+            background: var(--tac-navy);
+            color: white;
+            border-color: var(--tac-navy);
+        }
+
+        .progress-step.completed .step-number {
+            background: var(--tac-red);
+            color: white;
+            border-color: var(--tac-red);
+        }
+
+        .progress-step .step-label {
+            font-size: 0.85rem;
+            color: #6B7280;
+            font-weight: 600;
+        }
+
+        .progress-step.active .step-label {
+            color: var(--tac-navy);
+        }
+
+        /* --- ALERT MESSAGES --- */
+        .alert {
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .alert-info {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            color: #1E40AF;
+        }
+
+        .alert-warning {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            color: #92400E;
+        }
+
+        .alert-success {
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+        }
+
+        .alert i {
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, var(--tac-red), transparent);
+            margin: 40px 0;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--tac-border);
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--tac-navy);
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* --- CONDITIONAL SECTIONS --- */
+        .conditional-section {
+            display: none;
+            padding: 24px;
+            background: #F9FAFB;
+            border-left: 4px solid var(--tac-red);
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .conditional-section.active {
+            display: block;
+        }
+
+        /* --- REPEATABLE SECTIONS --- */
+        .repeatable-container {
+            border: 2px dashed var(--tac-border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .repeatable-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .repeatable-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--tac-navy);
+        }
+
+        .btn-remove {
+            background: #FEE2E2;
+            color: #991B1B;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-add {
+            background: var(--tac-navy);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background: var(--tac-green);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .footer-text {
+            color: #D1D5DB;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.75rem;
+            color: #9CA3AF;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            line-height: 1.8;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .application-container {
+                grid-template-columns: 1fr;
+            }
+
+            .property-panel {
+                position: relative;
+                top: 0;
+                order: -1;
+            }
+
+            .form-row,
+            .form-row-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-section {
+                padding: 24px;
+            }
+
+            .property-specs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-indicator {
+                overflow-x: auto;
+            }
+        }
+
+        /* --- PAGE VISIBILITY --- */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* --- LOADING STATE --- */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--tac-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- FILE UPLOAD --- */
+        .file-upload {
+            border: 2px dashed var(--tac-border);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover {
+            border-color: var(--tac-navy);
+            background: #F9FAFB;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-icon {
+            font-size: 2rem;
+            color: var(--tac-navy);
+            margin-bottom: 12px;
+        }
+
+        .file-upload-text {
+            font-size: 0.95rem;
+            color: #6B7280;
+        }
+
+        .file-list {
+            margin-top: 12px;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: #F3F4F6;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .file-item-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .file-item-remove {
+            color: var(--tac-red);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <i class="fas fa-shield-alt" style="color: #FFD700; margin-right: 10px;"></i>
+        <span>Military-Grade Banking for Those Who Served - 100% Veteran Staffed</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>The Veteran Alliance Bank</span>
+            </a>
+            <div>
+                <button class="btn btn-secondary">Need Help? Talk to a Veteran Banker</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Application Container -->
+    <div class="application-container">
+        <!-- LEFT SIDE: Form Section -->
+        <div class="form-section">
+            <div class="form-header">
+                <h1>VA Equity Home Loan Application</h1>
+                <p>Complete all required fields. Your information is secure and encrypted.</p>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-indicator">
+                <div class="progress-line">
+                    <div class="progress-line-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-step active" data-page="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Personal</div>
+                </div>
+                <div class="progress-step" data-page="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Disclosures</div>
+                </div>
+                <div class="progress-step" data-page="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Property</div>
+                </div>
+                <div class="progress-step" data-page="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Financial</div>
+                </div>
+                <div class="progress-step" data-page="5">
+                    <div class="step-number">5</div>
+                    <div class="step-label">Submit</div>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- PAGE 1: PERSONAL INFORMATION & MILITARY SERVICE -->
+            <!-- ============================================ -->
+            <div class="page active" id="page1">
+                <div class="page-indicator">PAGE 1 OF 5</div>
+                
+                <div class="section-header">
+                    <h2>Personal Information & Military Service</h2>
+                    <p>Tell us about yourself and your military background</p>
+                </div>
+
+                <!-- Section 1: Basic Personal Information -->
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <strong>Getting Started:</strong> Please provide your basic contact information. All fields marked with * are required.
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" required minlength="2" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" maxlength="50">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" required minlength="2" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="suffix">Suffix</label>
+                        <select id="suffix">
+                            <option value="">Select...</option>
+                            <option value="Jr">Jr</option>
+                            <option value="Sr">Sr</option>
+                            <option value="II">II</option>
+                            <option value="III">III</option>
+                            <option value="IV">IV</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" required>
+                        <div class="help-text">We'll use this to send you updates about your application</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" required placeholder="(XXX) XXX-XXXX">
+                        <div class="help-text">Auto-formatting enabled</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactMethod">Preferred Contact Method <span class="required">*</span></label>
+                        <select id="contactMethod" required>
+                            <option value="">Select...</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                            <option value="text">Text Message</option>
+                            <option value="video">Video Chat / Facetime</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactTime">Best Time to Contact <span class="required">*</span></label>
+                        <select id="contactTime" required>
+                            <option value="">Select...</option>
+                            <option value="morning">Morning (8am-12pm EST)</option>
+                            <option value="afternoon">Afternoon (12pm-5pm EST)</option>
+                            <option value="evening">Evening (5pm-8pm EST)</option>
+                            <option value="late">Late Night (8pm-11pm EST)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="marketingConsent" required>
+                    <label for="marketingConsent">
+                        <strong>Permission to Contact You / Marketing Use Opt-in <span class="required">*</span></strong><br>
+                        I consent to be contacted by Veteran Alliance Bank via phone, email, or text message regarding my application and to receive marketing communications about products and services. I can opt-out at any time.
+                    </label>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Section 2: Military Service Information -->
+                <div class="section-header">
+                    <h2>Military Service Information</h2>
+                    <p>Help us understand your military background</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="militaryStatus">Military Status <span class="required">*</span></label>
+                    <select id="militaryStatus" required>
+                        <option value="">Select...</option>
+                        <option value="active">Active Duty</option>
+                        <option value="guard">National Guard/Reserve</option>
+                        <option value="veteran">Retiree/Veteran</option>
+                        <option value="spouse">Military Spouse</option>
+                        <option value="supporter">Military Supporter</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="help-text">If you select Military Spouse, Military Supporter, or Other, you'll skip the detailed military questions</div>
+                </div>
+
+                <!-- Conditional Military Questions -->
+                <div id="militaryDetails" class="conditional-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="branch">Branch of Service <span class="required">*</span></label>
+                            <select id="branch">
+                                <option value="">Select...</option>
+                                <option value="army">Army</option>
+                                <option value="navy">Navy</option>
+                                <option value="airforce">Air Force</option>
+                                <option value="marines">Marine Corps</option>
+                                <option value="coastguard">Coast Guard</option>
+                                <option value="spaceforce">Space Force</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rank">Rank/Grade <span class="required">*</span></label>
+                            <select id="rank">
+                                <option value="">Select...</option>
+                                <optgroup label="Enlisted">
+                                    <option value="E-1">E-1</option>
+                                    <option value="E-2">E-2</option>
+                                    <option value="E-3">E-3</option>
+                                    <option value="E-4">E-4</option>
+                                    <option value="E-5">E-5</option>
+                                    <option value="E-6">E-6</option>
+                                    <option value="E-7">E-7</option>
+                                    <option value="E-8">E-8</option>
+                                    <option value="E-9">E-9</option>
+                                </optgroup>
+                                <optgroup label="Warrant Officer">
+                                    <option value="W-1">W-1</option>
+                                    <option value="W-2">W-2</option>
+                                    <option value="W-3">W-3</option>
+                                    <option value="W-4">W-4</option>
+                                    <option value="W-5">W-5</option>
+                                </optgroup>
+                                <optgroup label="Officer">
+                                    <option value="O-1">O-1</option>
+                                    <option value="O-2">O-2</option>
+                                    <option value="O-3">O-3</option>
+                                    <option value="O-4">O-4</option>
+                                    <option value="O-5">O-5</option>
+                                    <option value="O-6">O-6</option>
+                                    <option value="O-7">O-7</option>
+                                    <option value="O-8">O-8</option>
+                                    <option value="O-9">O-9</option>
+                                    <option value="O-10">O-10</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mos">Military Occupational Specialty (MOS/AFSC/Rate)</label>
+                        <input type="text" id="mos" placeholder="e.g., 11B, 68W, 3P0X1, QM, 0311">
+                        <div class="help-text">Examples: Army: 11B, 68W, 35F | Navy: QM, BM, FC | Air Force: 3P0X1, 1N0X1 | Marine Corps: 0311, 0231</div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="entryDate">Entry Date <span class="required">*</span></label>
+                            <input type="date" id="entryDate">
+                            <div class="help-text">Date you entered military service</div>
+                        </div>
+                        <div class="form-group" id="exitDateGroup" style="display: none;">
+                            <label for="exitDate">Exit Date</label>
+                            <input type="date" id="exitDate">
+                            <div class="help-text">Date you separated from service</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="dischargeTypeGroup" style="display: none;">
+                        <label for="dischargeType">Discharge Type <span class="required">*</span></label>
+                        <select id="dischargeType">
+                            <option value="">Select...</option>
+                            <option value="honorable">Honorable</option>
+                            <option value="general">General Under Honorable Conditions</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="nextPage(2)">
+                        Continue to Disclosures <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- PAGE 2: DISCLOSURES & ACKNOWLEDGMENTS -->
+            <!-- ============================================ -->
+            <div class="page" id="page2">
+                <div class="page-indicator">PAGE 2 OF 5</div>
+                
+                <div class="section-header">
+                    <h2>Disclosures & Acknowledgments</h2>
+                    <p>Please review and acknowledge the following disclosures</p>
+                </div>
+
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <strong>Important:</strong> Please read each disclosure carefully. All checkboxes must be checked to proceed.
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="affiliateDisclosure" required>
+                    <label for="affiliateDisclosure">
+                        <strong>Affiliate Business Relationship Disclosure <span class="required">*</span></strong><br>
+                        I understand that Veteran Alliance Bank offers insurance products through The VWM Team, LLC, an affiliate business relationship. Some products offered by the VWM Team are white labeled products from partnering businesses. I acknowledge this relationship.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="termsOfService" required>
+                    <label for="termsOfService">
+                        <strong>Terms of Service Agreement <span class="required">*</span></strong><br>
+                        I agree to the Veteran Alliance Bank <a href="#" style="color: var(--tac-red); text-decoration: underline;">Terms of Service</a> and acknowledge that I have read and understood the terms and conditions governing the use of this service.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="creditPullAuth" required>
+                    <label for="creditPullAuth">
+                        <strong>Credit Pull Authorization <span class="required">*</span></strong><br>
+                        I authorize Veteran Alliance Bank to perform a soft credit inquiry for verification purposes only. I understand that this is a SOFT credit pull only and will NOT affect my credit score. This is for identity verification purposes only, and my credit history is NOT a factor in loan approval.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacyPolicy" required>
+                    <label for="privacyPolicy">
+                        <strong>Privacy Policy Acknowledgment <span class="required">*</span></strong><br>
+                        I have read and agree to the Veteran Alliance Bank <a href="#" style="color: var(--tac-red); text-decoration: underline;">Privacy Policy</a>. I understand how my personal information will be collected, used, and protected.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="electronicSignature" required>
+                    <label for="electronicSignature">
+                        <strong>Electronic Signature Agreement <span class="required">*</span></strong><br>
+                        I consent to conduct business electronically and agree that my electronic signature on this application has the same legal effect as a handwritten signature. I understand that I may request a paper copy of this agreement.
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="stateOfResidence">State of Residence <span class="required">*</span></label>
+                    <select id="stateOfResidence" required>
+                        <option value="">Select your state...</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="truthInLending" required>
+                    <label for="truthInLending">
+                        <strong>Truth in Lending Act Disclosure <span class="required">*</span></strong><br>
+                        I acknowledge that the VA EHL is NOT a traditional mortgage loan and is structured as an equity sharing agreement. I understand that there are NO monthly payments, NO interest rate, repayment is based on shared home appreciation, and this is an investment agreement, not a traditional loan.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="fairLending" required>
+                    <label for="fairLending">
+                        <strong>Fair Lending Notice Acknowledgment <span class="required">*</span></strong><br>
+                        I acknowledge that Veteran Alliance Bank does not discriminate on the basis of race, color, religion, national origin, sex, marital status, age, or because all or part of income derives from public assistance.
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="hearAbout">How did you hear about VA EHL? <span class="required">*</span></label>
+                    <select id="hearAbout" required>
+                        <option value="">Select...</option>
+                        <option value="website">The Veteran Alliance Bank Website</option>
+                        <option value="banker">Veteran Banker Referral</option>
+                        <option value="social">Social Media (Facebook, Instagram, LinkedIn)</option>
+                        <option value="vso">Veteran Organization (VFW, American Legion, etc.)</option>
+                        <option value="referral">Friend/Family Referral</option>
+                        <option value="search">Online Search (Google, Bing, etc.)</option>
+                        <option value="ad">Advertisement</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="bankerNameGroup" style="display: none;">
+                    <label for="bankerName">Veteran Banker Name</label>
+                    <input type="text" id="bankerName" placeholder="Enter banker's name">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-outline" onclick="prevPage(1)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-primary" onclick="nextPage(3)">
+                        Continue to Property Information <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- PAGE 3: PROPERTY INFORMATION -->
+            <!-- ============================================ -->
+            <div class="page" id="page3">
+                <div class="page-indicator">PAGE 3 OF 5</div>
+                
+                <div class="section-header">
+                    <h2>Property Information</h2>
+                    <p>Enter your property address to automatically pull property data</p>
+                </div>
+
+                <div class="alert alert-info">
+                    <i class="fas fa-magic"></i>
+                    <div>
+                        <strong>Smart Data Integration:</strong> Enter your property address and we'll automatically pull property details, mortgage information, tax data, and ownership records from our integrated APIs. All data is editable.
+                    </div>
+                </div>
+
+                <!-- Property Address Input -->
+                <div class="form-group">
+                    <label for="propertyAddress">Property Address <span class="required">*</span></label>
+                    <input type="text" id="propertyAddress" required placeholder="Enter full property address">
+                    <div class="help-text">
+                        <i class="fas fa-info-circle"></i> Start typing and we'll auto-complete your address
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="fetchDataBtn" style="width: 100%; margin-bottom: 32px;">
+                    <i class="fas fa-search"></i> Fetch Property Data
+                </button>
+
+                <div id="apiLoadingStatus" style="display: none; text-align: center; margin-bottom: 32px;">
+                    <div class="loading"></div>
+                    <p style="margin-top: 12px; color: #6B7280;">Fetching property data from RealEstateAPI...</p>
+                </div>
+
+                <!-- Property Questions (Shown after data fetch) -->
+                <div id="propertyQuestions" style="display: none;">
+                    <div class="section-divider"></div>
+
+                    <div class="form-group">
+                        <label>Is this your primary residence? <span class="required">*</span></label>
+                        <select id="primaryResidence" required>
+                            <option value="">Select...</option>
+                            <option value="yes">Yes (Primary Residence)</option>
+                            <option value="no">No (See options below)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="propertyUseGroup" style="display: none;">
+                        <label for="propertyUseType">Property Use Type <span class="required">*</span></label>
+                        <select id="propertyUseType">
+                            <option value="">Select...</option>
+                            <option value="second-home">Second Home / Vacation Home</option>
+                            <option value="investment-sfr">Investment Property (Single Family Residential)</option>
+                            <option value="investment-mfr">Investment Property (Multi-Family Residential)</option>
+                            <option value="investment-commercial">Investment Property (Commercial)</option>
+                            <option value="lot">Lot (Undeveloped Land)</option>
+                            <option value="other">Other (specify)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="propertyType">Property Type <span class="required">*</span></label>
+                            <select id="propertyType" required>
+                                <option value="">Select...</option>
+                                <option value="single-family">Single Family Home</option>
+                                <option value="condo">Condominium</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="multi-family">Multi-Family (2-4 units)</option>
+                                <option value="lot">Lot (Undeveloped)</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="api-status"><i class="fas fa-check-circle"></i> Auto-populated from API</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ownershipStatus">Ownership Status <span class="required">*</span></label>
+                            <select id="ownershipStatus" required>
+                                <option value="">Select...</option>
+                                <option value="free-clear">Owned Free & Clear</option>
+                                <option value="one-mortgage">Has One Mortgage</option>
+                                <option value="multiple-mortgages">Has Multiple Mortgages</option>
+                            </select>
+                            <div class="api-status"><i class="fas fa-check-circle"></i> Auto-populated from API</div>
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <!-- Property Ownership Structure -->
+                    <div class="section-header">
+                        <h2>Property Ownership Structure</h2>
+                        <p>How is the property legally owned?</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ownershipType">Property Ownership Type <span class="required">*</span></label>
+                        <select id="ownershipType" required>
+                            <option value="">Select...</option>
+                            <option value="sole">Sole Ownership (Severalty) - Individual owns 100%</option>
+                            <option value="joint">Joint Tenancy (with Right of Survivorship)</option>
+                            <option value="tenancy-common">Tenancy in Common</option>
+                            <option value="tenancy-entirety">Tenancy by the Entirety (Married couples)</option>
+                            <option value="trust-revocable">Revocable Living Trust</option>
+                            <option value="trust-irrevocable">Irrevocable Trust</option>
+                            <option value="llc">Limited Liability Company (LLC)</option>
+                            <option value="corporation">Corporation</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="other">Other Entity</option>
+                        </select>
+                        <div class="help-text">This determines the legal structure of property ownership</div>
+                    </div>
+
+                    <!-- Co-Owner Section (Conditional) -->
+                    <div id="coOwnerSection" class="conditional-section">
+                        <div class="section-header">
+                            <h2>Co-Owner Information</h2>
+                            <p>Provide details for all co-owners</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numCoOwners">Number of Co-Owners <span class="required">*</span></label>
+                            <input type="number" id="numCoOwners" min="1" max="10" placeholder="Not including yourself">
+                        </div>
+
+                        <div id="coOwnersContainer"></div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="coOwnerConsent" required>
+                            <label for="coOwnerConsent">
+                                <strong>Co-Owner Consent to Loan <span class="required">*</span></strong><br>
+                                I confirm that all co-owners are aware of and consent to this loan application. Co-owner signatures will be required at closing.
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Trust Section (Conditional) -->
+                    <div id="trustSection" class="conditional-section">
+                        <div class="section-header">
+                            <h2>Trust Information</h2>
+                            <p>Provide details about the trust that owns the property</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trustLegalName">Trust Legal Name <span class="required">*</span></label>
+                            <input type="text" id="trustLegalName" placeholder="e.g., The John and Jane Doe Family Trust">
+                            <div class="help-text">Enter name exactly as it appears on the trust document</div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="trustType">Trust Type <span class="required">*</span></label>
+                                <select id="trustType">
+                                    <option value="">Select...</option>
+                                    <option value="revocable">Revocable Living Trust</option>
+                                    <option value="irrevocable">Irrevocable Trust</option>
+                                    <option value="testamentary">Testamentary Trust</option>
+                                    <option value="special-needs">Special Needs Trust</option>
+                                    <option value="charitable">Charitable Trust</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="trustEstablishDate">Trust Date of Establishment <span class="required">*</span></label>
+                                <input type="date" id="trustEstablishDate">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="trustState">State Where Trust Was Established <span class="required">*</span></label>
+                                <select id="trustState">
+                                    <option value="">Select state...</option>
+                                    <option value="CA">California</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="NY">New York</option>
+                                    <!-- Add all 50 states -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="trustTaxID">Trust Tax ID (EIN) <span class="required">*</span></label>
+                                <input type="text" id="trustTaxID" placeholder="XX-XXXXXXX">
+                                <div class="help-text">If trust uses grantor's SSN, enter that and note 'Grantor SSN'</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trusteeName">Trustee Name(s) <span class="required">*</span></label>
+                            <input type="text" id="trusteeName" placeholder="List all current trustees">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Is the Applicant a Trustee? <span class="required">*</span></label>
+                            <select id="applicantTrustee">
+                                <option value="">Select...</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trusteeAuthority">Trustee's Authority to Borrow <span class="required">*</span></label>
+                            <select id="trusteeAuthority">
+                                <option value="">Select...</option>
+                                <option value="full">Full authority without restrictions</option>
+                                <option value="beneficiary">Authority with beneficiary consent required</option>
+                                <option value="cotrustee">Authority with co-trustee consent required</option>
+                                <option value="limited">Limited authority (explain below)</option>
+                                <option value="uncertain">Uncertain (requires trust document review)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trustBeneficiaries">Trust Beneficiaries <span class="required">*</span></label>
+                            <textarea id="trustBeneficiaries" placeholder="List all current beneficiaries of the trust (names and relationships)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Are any beneficiaries minors? <span class="required">*</span></label>
+                            <select id="minorBeneficiaries">
+                                <option value="">Select...</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trustDocument">Trust Document Upload <span class="required">*</span></label>
+                            <div class="file-upload" onclick="document.getElementById('trustDocFile').click()">
+                                <input type="file" id="trustDocFile" accept=".pdf">
+                                <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                <div class="file-upload-text">
+                                    <strong>Click to upload trust document</strong><br>
+                                    PDF only, max 25MB
+                                </div>
+                            </div>
+                            <div class="file-list" id="trustDocList"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="propertyTransferDate">Date Property Transferred to Trust <span class="required">*</span></label>
+                            <input type="date" id="propertyTransferDate">
+                        </div>
+                    </div>
+
+                    <!-- LLC Section (Conditional) -->
+                    <div id="llcSection" class="conditional-section">
+                        <div class="section-header">
+                            <h2>LLC Information</h2>
+                            <p>Provide details about the LLC that owns the property</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="llcLegalName">LLC Legal Name <span class="required">*</span></label>
+                            <input type="text" id="llcLegalName" placeholder="e.g., Veteran Properties Holdings, LLC">
+                            <div class="help-text">Enter name exactly as registered with the state</div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="llcState">LLC State of Formation <span class="required">*</span></label>
+                                <select id="llcState">
+                                    <option value="">Select state...</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="CA">California</option>
+                                    <option value="TX">Texas</option>
+                                    <!-- Add all 50 states -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="llcFormationDate">LLC Formation Date <span class="required">*</span></label>
+                                <input type="date" id="llcFormationDate">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="llcRegNumber">LLC Registration Number <span class="required">*</span></label>
+                                <input type="text" id="llcRegNumber">
+                                <div class="help-text">Found on Articles of Organization</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="llcTaxID">LLC Federal Tax ID (EIN) <span class="required">*</span></label>
+                                <input type="text" id="llcTaxID" placeholder="XX-XXXXXXX">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="llcTaxClass">LLC Tax Classification <span class="required">*</span></label>
+                                <select id="llcTaxClass">
+                                    <option value="">Select...</option>
+                                    <option value="single">Single-Member LLC (Disregarded Entity)</option>
+                                    <option value="multi">Multi-Member LLC (Partnership)</option>
+                                    <option value="s-corp">LLC Taxed as S-Corporation</option>
+                                    <option value="c-corp">LLC Taxed as C-Corporation</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="llcManagement">LLC Management Structure <span class="required">*</span></label>
+                                <select id="llcManagement">
+                                    <option value="">Select...</option>
+                                    <option value="member">Member-Managed</option>
+                                    <option value="manager">Manager-Managed</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numLLCMembers">Number of LLC Members <span class="required">*</span></label>
+                            <input type="number" id="numLLCMembers" min="1" max="50">
+                        </div>
+
+                        <div id="llcMembersContainer"></div>
+
+                        <div class="form-group">
+                            <label>Is the Applicant a Member? <span class="required">*</span></label>
+                            <select id="applicantMember">
+                                <option value="">Select...</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="applicantOwnershipGroup" style="display: none;">
+                            <label for="applicantOwnership">Applicant's Ownership Percentage <span class="required">*</span></label>
+                            <input type="number" id="applicantOwnership" min="0" max="100" step="0.01">
+                            <div class="help-text">The VA EHL program typically requires the applicant to have majority ownership (51%+)</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="llcOperatingAgreement">LLC Operating Agreement Upload <span class="required">*</span></label>
+                            <div class="file-upload" onclick="document.getElementById('llcOpFile').click()">
+                                <input type="file" id="llcOpFile" accept=".pdf">
+                                <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                <div class="file-upload-text">
+                                    <strong>Click to upload operating agreement</strong><br>
+                                    PDF only, max 25MB
+                                </div>
+                            </div>
+                            <div class="file-list" id="llcOpList"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="llcArticles">Articles of Organization Upload <span class="required">*</span></label>
+                            <div class="file-upload" onclick="document.getElementById('llcArticlesFile').click()">
+                                <input type="file" id="llcArticlesFile" accept=".pdf">
+                                <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                <div class="file-upload-text">
+                                    <strong>Click to upload articles of organization</strong><br>
+                                    PDF only, max 10MB
+                                </div>
+                            </div>
+                            <div class="file-list" id="llcArticlesList"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="llcGoodStanding">Certificate of Good Standing <span class="required">*</span></label>
+                            <div class="file-upload" onclick="document.getElementById('llcGoodStandingFile').click()">
+                                <input type="file" id="llcGoodStandingFile" accept=".pdf">
+                                <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                <div class="file-upload-text">
+                                    <strong>Click to upload certificate</strong><br>
+                                    Must be dated within 90 days, PDF only, max 5MB
+                                </div>
+                            </div>
+                            <div class="file-list" id="llcGoodStandingList"></div>
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <!-- Property Valuation & Mortgage -->
+                    <div class="section-header">
+                        <h2>Property Valuation & Mortgage</h2>
+                        <p>Review and confirm financial details</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="currentValue">Estimated Current Home Value <span class="required">*</span></label>
+                            <input type="number" id="currentValue" required min="100000" step="1000" placeholder="$">
+                            <div class="api-status"><i class="fas fa-check-circle"></i> Auto-populated from API</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchaseDate">Purchase Date <span class="required">*</span></label>
+                            <input type="date" id="purchaseDate" required>
+                            <div class="api-status"><i class="fas fa-check-circle"></i> Auto-populated from API</div>
+                        </div>
+                    </div>
+
+                    <div id="mortgageSection">
+                        <div class="form-group">
+                            <label for="mortgageBalance">Existing Mortgage Balance <span class="required">*</span></label>
+                            <input type="number" id="mortgageBalance" min="0" step="1000" placeholder="$">
+                            <div class="api-status"><i class="fas fa-check-circle"></i> Auto-populated from API</div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="lenderName">Mortgage Lender Name <span class="required">*</span></label>
+                                <input type="text" id="lenderName">
+                                <div class="api-status"><i class="fas fa-check-circle"></i> Auto-populated from API</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mortgageAccount">Mortgage Account Number <span class="required">*</span></label>
+                                <input type="text" id="mortgageAccount">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="monthlyPayment">Monthly Mortgage Payment <span class="required">*</span></label>
+                                <input type="number" id="monthlyPayment" min="0" step="1" placeholder="$">
+                                <div class="api-status"><i class="fas fa-check-circle"></i> Auto-populated from API</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="interestRate">Interest Rate <span class="required">*</span></label>
+                                <input type="number" id="interestRate" min="0" max="20" step="0.01" placeholder="%">
+                                <div class="api-status"><i class="fas fa-check-circle"></i> Auto-populated from API</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loanAmount">Loan Amount Requested <span class="required">*</span></label>
+                        <input type="number" id="loanAmount" required min="50000" max="500000" step="1000" placeholder="$50,000 - $500,000">
+                        <div class="help-text">
+                            <i class="fas fa-calculator"></i> Must be between $50,000 and $500,000, and cannot exceed 90% of available equity
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <!-- Property Condition -->
+                    <div class="section-header">
+                        <h2>Property Condition & Improvements</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="propertyCondition">Property Condition <span class="required">*</span></label>
+                        <select id="propertyCondition" required>
+                            <option value="">Select...</option>
+                            <option value="excellent">Excellent (Move-in ready, recently updated)</option>
+                            <option value="good">Good (Well-maintained, minor updates needed)</option>
+                            <option value="average">Average (Functional, some updates needed)</option>
+                            <option value="needs-repairs">Needs Repairs (Significant repairs required)</option>
+                        </select>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="plannedImprovements">
+                        <label for="plannedImprovements">
+                            I have planned capital improvements (over $10,000)
+                        </label>
+                    </div>
+
+                    <div id="improvementDetails" class="conditional-section">
+                        <div class="form-group">
+                            <label for="improvementDescription">Improvement Description</label>
+                            <textarea id="improvementDescription" placeholder="Describe planned improvements (e.g., kitchen remodel, ADU, room addition, new roof)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="improvementCost">Estimated Improvement Cost</label>
+                            <input type="number" id="improvementCost" min="10000" step="1000" placeholder="Minimum $10,000">
+                        </div>
+                        <div class="form-group">
+                            <label for="improvementTimeline">Improvement Timeline</label>
+                            <select id="improvementTimeline">
+                                <option value="">Select...</option>
+                                <option value="6months">Within 6 months</option>
+                                <option value="6-12months">6-12 months</option>
+                                <option value="1-2years">1-2 years</option>
+                                <option value="undetermined">Not yet determined</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <!-- Insurance Opt-in -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="canopyOptIn">
+                        <label for="canopyOptIn">
+                            <strong>I authorize pulling my insurance information from Canopy Connect</strong><br>
+                            <i class="fas fa-lock"></i> Optional: This helps us verify your insurance coverage faster
+                        </label>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-outline" onclick="prevPage(2)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-primary" onclick="nextPage(4)">
+                        Continue to Financial Information <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- PAGE 4: ADVANCED PERSONAL & FINANCIAL -->
+            <!-- ============================================ -->
+            <div class="page" id="page4">
+                <div class="page-indicator">PAGE 4 OF 5</div>
+                
+                <div class="section-header">
+                    <h2>Personal Information & Financial History</h2>
+                    <p>Additional information for your application</p>
+                </div>
+
+                <!-- Personal Information -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="dateOfBirth" required>
+                        <div class="help-text">Must be 18+ years old</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ssn">Social Security Number <span class="required">*</span></label>
+                        <input type="text" id="ssn" required placeholder="XXX-XX-XXXX" maxlength="11">
+                        <div class="help-text"><i class="fas fa-lock"></i> Encrypted and used for identity verification only</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mailing Address Different from Property Address? <span class="required">*</span></label>
+                    <select id="differentMailingAddress" required>
+                        <option value="">Select...</option>
+                        <option value="no">No (Same as property address)</option>
+                        <option value="yes">Yes (Provide mailing address below)</option>
+                    </select>
+                </div>
+
+                <div id="mailingAddressSection" class="conditional-section">
+                    <div class="form-group">
+                        <label for="mailingStreet">Mailing Street Address <span class="required">*</span></label>
+                        <input type="text" id="mailingStreet">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mailingCity">City <span class="required">*</span></label>
+                            <input type="text" id="mailingCity">
+                        </div>
+                        <div class="form-group">
+                            <label for="mailingState">State <span class="required">*</span></label>
+                            <select id="mailingState">
+                                <option value="">Select...</option>
+                                <option value="CA">California</option>
+                                <option value="TX">Texas</option>
+                                <!-- Add all states -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mailingZip">ZIP Code <span class="required">*</span></label>
+                        <input type="text" id="mailingZip" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Employment & Income -->
+                <div class="section-header">
+                    <h2>Employment & Income Information</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="employmentStatus">Employment Status <span class="required">*</span></label>
+                    <select id="employmentStatus" required>
+                        <option value="">Select...</option>
+                        <option value="employed">Employed Full-Time</option>
+                        <option value="part-time">Employed Part-Time</option>
+                        <option value="self-employed">Self-Employed</option>
+                        <option value="retired">Retired</option>
+                        <option value="military">Active Military</option>
+                        <option value="unemployed">Unemployed</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div id="employmentDetails" class="conditional-section">
+                    <div class="form-group">
+                        <label for="employer">Employer Name <span class="required">*</span></label>
+                        <input type="text" id="employer">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title <span class="required">*</span></label>
+                            <input type="text" id="jobTitle">
+                        </div>
+                        <div class="form-group">
+                            <label for="yearsEmployed">Years with Employer <span class="required">*</span></label>
+                            <input type="number" id="yearsEmployed" min="0" step="0.5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="annualIncome">Annual Gross Income <span class="required">*</span></label>
+                        <input type="number" id="annualIncome" required min="0" step="1000" placeholder="$">
+                        <div class="help-text">Total annual income before taxes</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="additionalIncome">Additional Income (Optional)</label>
+                        <input type="number" id="additionalIncome" min="0" step="1000" placeholder="$">
+                        <div class="help-text">Rental income, investments, VA benefits, etc.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Financial Goals -->
+                <div class="section-header">
+                    <h2>Financial Goals & Use of Funds</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="loanPurpose">Primary Purpose of Loan <span class="required">*</span></label>
+                    <select id="loanPurpose" required>
+                        <option value="">Select...</option>
+                        <option value="debt-consolidation">Debt Consolidation</option>
+                        <option value="home-improvement">Home Improvement</option>
+                        <option value="business">Start/Grow Business</option>
+                        <option value="education">Education Expenses</option>
+                        <option value="medical">Medical Expenses</option>
+                        <option value="investment">Investment Opportunity</option>
+                        <option value="emergency">Emergency Fund</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="loanPurposeDetails">Describe How You Plan to Use the Funds <span class="required">*</span></label>
+                    <textarea id="loanPurposeDetails" required placeholder="Please provide details about your intended use of the loan funds"></textarea>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Credit & Financial History -->
+                <div class="section-header">
+                    <h2>Credit & Financial History</h2>
+                </div>
+
+                <div class="form-group">
+                    <label>Have you filed for bankruptcy in the past 7 years? <span class="required">*</span></label>
+                    <select id="bankruptcy" required>
+                        <option value="">Select...</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+
+                <div id="bankruptcyDetails" class="conditional-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bankruptcyType">Bankruptcy Type</label>
+                            <select id="bankruptcyType">
+                                <option value="">Select...</option>
+                                <option value="chapter7">Chapter 7</option>
+                                <option value="chapter13">Chapter 13</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bankruptcyDate">Discharge Date</label>
+                            <input type="date" id="bankruptcyDate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Have you had a foreclosure in the past 7 years? <span class="required">*</span></label>
+                    <select id="foreclosure" required>
+                        <option value="">Select...</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you have any outstanding judgments or liens? <span class="required">*</span></label>
+                    <select id="judgments" required>
+                        <option value="">Select...</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+
+                <div id="judgmentDetails" class="conditional-section">
+                    <div class="form-group">
+                        <label for="judgmentDescription">Describe Judgments/Liens</label>
+                        <textarea id="judgmentDescription" placeholder="Provide details about any outstanding judgments or liens"></textarea>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Assets & Liabilities -->
+                <div class="section-header">
+                    <h2>Assets & Liabilities</h2>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkingSavings">Checking/Savings Balance <span class="required">*</span></label>
+                        <input type="number" id="checkingSavings" required min="0" step="100" placeholder="$">
+                    </div>
+                    <div class="form-group">
+                        <label for="retirementAccounts">Retirement Accounts Balance</label>
+                        <input type="number" id="retirementAccounts" min="0" step="1000" placeholder="$">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="otherAssets">Other Assets Value</label>
+                        <input type="number" id="otherAssets" min="0" step="1000" placeholder="$">
+                        <div class="help-text">Vehicles, investments, etc.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="totalDebt">Total Outstanding Debt <span class="required">*</span></label>
+                        <input type="number" id="totalDebt" required min="0" step="1000" placeholder="$">
+                        <div class="help-text">Credit cards, auto loans, student loans, etc.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- References -->
+                <div class="section-header">
+                    <h2>Personal References</h2>
+                    <p>Provide two personal references (not family members)</p>
+                </div>
+
+                <div class="repeatable-container">
+                    <div class="repeatable-header">
+                        <h3>Reference #1</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ref1Name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="ref1Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ref1Relationship">Relationship <span class="required">*</span></label>
+                            <input type="text" id="ref1Relationship" required placeholder="e.g., Friend, Colleague">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ref1Phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="ref1Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ref1Email">Email Address</label>
+                            <input type="email" id="ref1Email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repeatable-container">
+                    <div class="repeatable-header">
+                        <h3>Reference #2</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ref2Name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="ref2Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ref2Relationship">Relationship <span class="required">*</span></label>
+                            <input type="text" id="ref2Relationship" required placeholder="e.g., Friend, Colleague">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ref2Phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="ref2Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ref2Email">Email Address</label>
+                            <input type="email" id="ref2Email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-outline" onclick="prevPage(3)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-primary" onclick="nextPage(5)">
+                        Continue to Final Review <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- PAGE 5: CERTIFICATIONS, SIGNATURE & SUBMISSION -->
+            <!-- ============================================ -->
+            <div class="page" id="page5">
+                <div class="page-indicator">PAGE 5 OF 5</div>
+                
+                <div class="section-header">
+                    <h2>Final Review & Submission</h2>
+                    <p>Review your information and provide final certifications</p>
+                </div>
+
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Almost Done!</strong> Please review all information carefully before submitting. You can go back to any previous page to make changes.
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="section-header">
+                    <h2>Certifications</h2>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="certAccuracy" required>
+                    <label for="certAccuracy">
+                        <strong>Accuracy Certification <span class="required">*</span></strong><br>
+                        I certify that all information provided in this application is true, accurate, and complete to the best of my knowledge. I understand that providing false information may result in denial of my application or legal consequences.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="certOwnership" required>
+                    <label for="certOwnership">
+                        <strong>Property Ownership Certification <span class="required">*</span></strong><br>
+                        I certify that I have legal authority to enter into this agreement regarding the property listed in this application. I understand that proof of ownership will be required.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="certUnderstanding" required>
+                    <label for="certUnderstanding">
+                        <strong>Program Understanding Certification <span class="required">*</span></strong><br>
+                        I understand that the VA EHL is an equity sharing agreement, not a traditional loan. I understand there are no monthly payments, no interest charges, and repayment is based on shared home appreciation at the time of sale or refinance.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="certRepayment" required>
+                    <label for="certRepayment">
+                        <strong>Repayment Understanding <span class="required">*</span></strong><br>
+                        I understand that the VA EHL must be repaid when I sell the property, refinance, or at the end of the agreement term. I understand the repayment amount will include the original loan amount plus a share of the property's appreciation.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="certMaintenance" required>
+                    <label for="certMaintenance">
+                        <strong>Property Maintenance Certification <span class="required">*</span></strong><br>
+                        I agree to maintain the property in good condition and keep all property taxes, insurance, and HOA fees current throughout the term of the agreement.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="certOccupancy" required>
+                    <label for="certOccupancy">
+                        <strong>Occupancy Certification <span class="required">*</span></strong><br>
+                        I certify that the property will be used as indicated in this application (primary residence, investment property, etc.) and I will notify Veteran Alliance Bank of any changes in occupancy status.
+                    </label>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Electronic Signature -->
+                <div class="section-header">
+                    <h2>Electronic Signature</h2>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signatureName">Full Legal Name <span class="required">*</span></label>
+                        <input type="text" id="signatureName" required placeholder="Type your full legal name">
+                        <div class="help-text">By typing your name, you are providing your electronic signature</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signatureDate">Date <span class="required">*</span></label>
+                        <input type="date" id="signatureDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signatureTitle">Title (if applicable)</label>
+                    <input type="text" id="signatureTitle" placeholder="e.g., Trustee, LLC Manager">
+                    <div class="help-text">Required if signing on behalf of a trust, LLC, or other entity</div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="signatureConsent" required>
+                    <label for="signatureConsent">
+                        <strong>Electronic Signature Consent <span class="required">*</span></strong><br>
+                        I consent to use electronic signatures and agree that my electronic signature has the same legal effect as a handwritten signature. I understand this application will be processed electronically.
+                    </label>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Additional Documents -->
+                <div class="section-header">
+                    <h2>Additional Documents (Optional)</h2>
+                    <p>Upload any additional supporting documents</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalDocs">Additional Documents</label>
+                    <div class="file-upload" onclick="document.getElementById('additionalDocsFile').click()">
+                        <input type="file" id="additionalDocsFile" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                        <div class="file-upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <div class="file-upload-text">
+                            <strong>Click to upload additional documents</strong><br>
+                            PDF, JPG, PNG accepted, max 10MB per file
+                        </div>
+                    </div>
+                    <div class="file-list" id="additionalDocsList"></div>
+                    <div class="help-text">Examples: Pay stubs, bank statements, tax returns, property appraisal, etc.</div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Final Confirmation -->
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <strong>Before You Submit:</strong>
+                        <ul style="margin: 12px 0 0 20px;">
+                            <li>Review all information for accuracy</li>
+                            <li>Ensure all required fields are completed</li>
+                            <li>Verify all certifications are checked</li>
+                            <li>Confirm your electronic signature</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="finalConfirmation" required>
+                    <label for="finalConfirmation">
+                        <strong>Final Confirmation <span class="required">*</span></strong><br>
+                        I have reviewed all information in this application and certify that it is accurate and complete. I am ready to submit my application for review by Veteran Alliance Bank.
+                    </label>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-outline" onclick="prevPage(4)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-primary" onclick="submitApplication()" style="font-size: 1.1rem; padding: 18px 36px;">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </div>
+
+                <div style="text-align: center; margin-top: 24px; color: #6B7280; font-size: 0.9rem;">
+                    <i class="fas fa-shield-alt"></i> Your information is encrypted and secure<br>
+                    A veteran banker will review your application within 24 hours
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Property Panel (Fixed) -->
+        <div class="property-panel">
+            <!-- Property Image -->
+            <div class="property-image" id="propertyImageContainer">
+                <div class="placeholder">
+                    <i class="fas fa-home"></i>
+                    <p>Property image will appear here</p>
+                    <small>After entering address on Page 3</small>
+                </div>
+            </div>
+
+            <!-- Property Details -->
+            <div class="property-details">
+                <div class="property-address" id="displayAddress">
+                    Enter property address to view details
+                </div>
+
+                <!-- Owner Information -->
+                <div class="info-section">
+                    <h3><i class="fas fa-user"></i> Owner Information</h3>
+                    <div class="info-row">
+                        <span class="info-label">Owner Name</span>
+                        <span class="info-value" id="ownerName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Purchase Date</span>
+                        <span class="info-value" id="purchaseDateDisplay">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Ownership Type</span>
+                        <span class="info-value" id="ownershipTypeDisplay">-</span>
+                    </div>
+                </div>
+
+                <!-- Mortgage Information -->
+                <div class="info-section">
+                    <h3><i class="fas fa-home"></i> Mortgage Information</h3>
+                    <div class="info-row">
+                        <span class="info-label">Lender</span>
+                        <span class="info-value" id="lenderNameDisplay">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Balance</span>
+                        <span class="info-value" id="mortgageBalanceDisplay">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Monthly Payment</span>
+                        <span class="info-value" id="monthlyPaymentDisplay">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Interest Rate</span>
+                        <span class="info-value" id="interestRateDisplay">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Loan Status</span>
+                        <span class="info-value" id="loanStatus">-</span>
+                    </div>
+                </div>
+
+                <!-- Insurance Information -->
+                <div class="info-section">
+                    <h3><i class="fas fa-shield-alt"></i> Insurance Information</h3>
+                    <div class="info-row">
+                        <span class="info-label">Carrier</span>
+                        <span class="info-value" id="insuranceCarrier">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Annual Premium</span>
+                        <span class="info-value" id="insurancePremium">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Status</span>
+                        <span class="info-value" id="insuranceStatus">-</span>
+                    </div>
+                </div>
+
+                <!-- Property Specs -->
+                <div class="property-specs">
+                    <div class="spec-item">
+                        <span class="spec-value" id="bedrooms">-</span>
+                        <span class="spec-label">Bedrooms</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="bathrooms">-</span>
+                        <span class="spec-label">Bathrooms</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="sqft">-</span>
+                        <span class="spec-label">Sq Ft</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="lotSize">-</span>
+                        <span class="spec-label">Lot Size</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="yearBuilt">-</span>
+                        <span class="spec-label">Year Built</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="propertyTypeDisplay">-</span>
+                        <span class="spec-label">Type</span>
+                    </div>
+                </div>
+
+                <!-- Property Features -->
+                <div class="property-features">
+                    <h3><i class="fas fa-star"></i> Property Features</h3>
+                    <div class="features-grid" id="featuresGrid">
+                        <div class="feature-tag"><i class="fas fa-info-circle"></i> Enter address to load</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i> The Veteran Alliance Bank
+            </div>
+            <div class="footer-text">
+                The ONLY bank entirely staffed by US Military Veterans
+            </div>
+            <div class="footer-disclaimer">
+                <strong>Important Disclosures:</strong><br>
+                The Veteran Alliance Equity Home Loan (VA EHL) is subject to credit approval and property eligibility. 
+                Loan amounts range from $50,000 to $500,000 and cannot exceed 90% of available equity. 
+                Property must be owner-occupied or meet investment property criteria. 
+                All information provided is encrypted and secure. Member FDIC. Equal Housing Lender.<br><br>
+                
+                <strong>API Data Sources:</strong> Property data is sourced from RealEstateAPI.com (property details, mortgage information, tax records, ownership data). 
+                Insurance information may be sourced from Canopy Connect with customer authorization. 
+                All API-retrieved data is editable by the applicant. Data accuracy is verified during underwriting.<br><br>
+                
+                © 2024 The Veteran Alliance Bank. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // DEMO DATA - Simulating API Responses
+        // ============================================
+        
+        const DEMO_PROPERTY_DATA = {
+            address: "1234 Veterans Way, Palo Alto, CA 94301",
+            image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop",
+            owner: {
+                name: "John & Sarah Veteran",
+                purchaseDate: "March 15, 2018",
+                ownershipType: "Joint Tenancy"
+            },
+            mortgage: {
+                lender: "Veterans United Home Loans",
+                balance: "$425,000",
+                monthlyPayment: "$2,450",
+                interestRate: "3.75%",
+                status: "Current"
+            },
+            insurance: {
+                carrier: "USAA Property & Casualty",
+                annualPremium: "$1,850",
+                status: "Active"
+            },
+            specs: {
+                bedrooms: 4,
+                bathrooms: 2.5,
+                sqft: "2,450",
+                lotSize: "0.25 ac",
+                yearBuilt: 2005,
+                propertyType: "Single Family"
+            },
+            features: [
+                { icon: "fa-car", label: "2-Car Garage" },
+                { icon: "fa-fire", label: "Fireplace" },
+                { icon: "fa-snowflake", label: "Central A/C" },
+                { icon: "fa-sun", label: "Solar Panels" },
+                { icon: "fa-tree", label: "Fenced Yard" },
+                { icon: "fa-home", label: "Updated Kitchen" }
+            ]
+        };
+
+        // ============================================
+        // PAGE NAVIGATION
+        // ============================================
+        
+        let currentPage = 1;
+
+        function nextPage(pageNum) {
+            // Validate current page before proceeding
+            if (!validateCurrentPage()) {
+                alert('Please complete all required fields before continuing.');
+                return;
+            }
+
+            // Hide current page
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            
+            // Show next page
+            document.getElementById(`page${pageNum}`).classList.add('active');
+            
+            // Update progress indicator
+            updateProgress(pageNum);
+            
+            // Update current page
+            currentPage = pageNum;
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevPage(pageNum) {
+            // Hide current page
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            
+            // Show previous page
+            document.getElementById(`page${pageNum}`).classList.add('active');
+            
+            // Update progress indicator
+            updateProgress(pageNum);
+            
+            // Update current page
+            currentPage = pageNum;
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateProgress(pageNum) {
+            // Update progress steps
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepPage = index + 1;
+                step.classList.remove('active', 'completed');
+                
+                if (stepPage < pageNum) {
+                    step.classList.add('completed');
+                } else if (stepPage === pageNum) {
+                    step.classList.add('active');
+                }
+            });
+            
+            // Update progress fill
+            const progressPercent = ((pageNum - 1) / 4) * 100;
+            document.getElementById('progressFill').style.width = `${progressPercent}%`;
+        }
+
+        function validateCurrentPage() {
+            const currentPageEl = document.getElementById(`page${currentPage}`);
+            const requiredFields = currentPageEl.querySelectorAll('[required]');
+            
+            for (let field of requiredFields) {
+                if (!field.value || (field.type === 'checkbox' && !field.checked)) {
+                    field.focus();
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        // ============================================
+        // CONDITIONAL LOGIC
+        // ============================================
+        
+        // Military Status
+        document.getElementById('militaryStatus')?.addEventListener('change', function() {
+            const militaryDetails = document.getElementById('militaryDetails');
+            const exitDateGroup = document.getElementById('exitDateGroup');
+            const dischargeTypeGroup = document.getElementById('dischargeTypeGroup');
+            
+            if (['active', 'guard', 'veteran'].includes(this.value)) {
+                militaryDetails.classList.add('active');
+                
+                if (this.value === 'veteran') {
+                    exitDateGroup.style.display = 'block';
+                    dischargeTypeGroup.style.display = 'block';
+                } else {
+                    exitDateGroup.style.display = 'none';
+                    dischargeTypeGroup.style.display = 'none';
+                }
+            } else {
+                militaryDetails.classList.remove('active');
+            }
+        });
+
+        // Hear About - Banker Referral
+        document.getElementById('hearAbout')?.addEventListener('change', function() {
+            const bankerNameGroup = document.getElementById('bankerNameGroup');
+            if (this.value === 'banker') {
+                bankerNameGroup.style.display = 'block';
+            } else {
+                bankerNameGroup.style.display = 'none';
+            }
+        });
+
+        // Primary Residence
+        document.getElementById('primaryResidence')?.addEventListener('change', function() {
+            const propertyUseGroup = document.getElementById('propertyUseGroup');
+            if (this.value === 'no') {
+                propertyUseGroup.style.display = 'block';
+            } else {
+                propertyUseGroup.style.display = 'none';
+            }
+        });
+
+        // Ownership Type
+        document.getElementById('ownershipType')?.addEventListener('change', function() {
+            const coOwnerSection = document.getElementById('coOwnerSection');
+            const trustSection = document.getElementById('trustSection');
+            const llcSection = document.getElementById('llcSection');
+            
+            // Hide all sections first
+            coOwnerSection.classList.remove('active');
+            trustSection.classList.remove('active');
+            llcSection.classList.remove('active');
+            
+            // Show relevant section
+            if (['joint', 'tenancy-common', 'tenancy-entirety'].includes(this.value)) {
+                coOwnerSection.classList.add('active');
+            } else if (['trust-revocable', 'trust-irrevocable'].includes(this.value)) {
+                trustSection.classList.add('active');
+            } else if (this.value === 'llc') {
+                llcSection.classList.add('active');
+            }
+        });
+
+        // Planned Improvements
+        document.getElementById('plannedImprovements')?.addEventListener('change', function() {
+            const improvementDetails = document.getElementById('improvementDetails');
+            if (this.checked) {
+                improvementDetails.classList.add('active');
+            } else {
+                improvementDetails.classList.remove('active');
+            }
+        });
+
+        // Different Mailing Address
+        document.getElementById('differentMailingAddress')?.addEventListener('change', function() {
+            const mailingAddressSection = document.getElementById('mailingAddressSection');
+            if (this.value === 'yes') {
+                mailingAddressSection.classList.add('active');
+            } else {
+                mailingAddressSection.classList.remove('active');
+            }
+        });
+
+        // Employment Status
+        document.getElementById('employmentStatus')?.addEventListener('change', function() {
+            const employmentDetails = document.getElementById('employmentDetails');
+            if (['employed', 'part-time', 'self-employed', 'military'].includes(this.value)) {
+                employmentDetails.classList.add('active');
+            } else {
+                employmentDetails.classList.remove('active');
+            }
+        });
+
+        // Bankruptcy
+        document.getElementById('bankruptcy')?.addEventListener('change', function() {
+            const bankruptcyDetails = document.getElementById('bankruptcyDetails');
+            if (this.value === 'yes') {
+                bankruptcyDetails.classList.add('active');
+            } else {
+                bankruptcyDetails.classList.remove('active');
+            }
+        });
+
+        // Judgments
+        document.getElementById('judgments')?.addEventListener('change', function() {
+            const judgmentDetails = document.getElementById('judgmentDetails');
+            if (this.value === 'yes') {
+                judgmentDetails.classList.add('active');
+            } else {
+                judgmentDetails.classList.remove('active');
+            }
+        });
+
+        // Applicant Member (LLC)
+        document.getElementById('applicantMember')?.addEventListener('change', function() {
+            const applicantOwnershipGroup = document.getElementById('applicantOwnershipGroup');
+            if (this.value === 'yes') {
+                applicantOwnershipGroup.style.display = 'block';
+            } else {
+                applicantOwnershipGroup.style.display = 'none';
+            }
+        });
+
+        // ============================================
+        // PROPERTY DATA FETCH
+        // ============================================
+        
+        document.getElementById('fetchDataBtn')?.addEventListener('click', function() {
+            const address = document.getElementById('propertyAddress').value.trim();
+            
+            if (!address) {
+                alert('Please enter a property address');
+                return;
+            }
+
+            // Show loading state
+            document.getElementById('apiLoadingStatus').style.display = 'block';
+            this.disabled = true;
+            this.innerHTML = '<div class="loading" style="display: inline-block; width: 16px; height: 16px; border-width: 2px;"></div> Fetching Data...';
+
+            // Simulate API call with delay
+            setTimeout(() => {
+                populatePropertyData(DEMO_PROPERTY_DATA);
+                
+                // Hide loading, show success
+                document.getElementById('apiLoadingStatus').style.display = 'none';
+                this.disabled = false;
+                this.innerHTML = '<i class="fas fa-check"></i> Data Loaded Successfully';
+                this.classList.remove('btn-primary');
+                this.classList.add('btn-secondary');
+                
+                // Show property questions
+                document.getElementById('propertyQuestions').style.display = 'block';
+                
+                // Scroll to property questions
+                setTimeout(() => {
+                    document.getElementById('propertyQuestions').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            }, 2000);
+        });
+
+        function populatePropertyData(data) {
+            // Property Image
+            const imageContainer = document.getElementById('propertyImageContainer');
+            imageContainer.innerHTML = `<img src="${data.image}" alt="Property Image">`;
+
+            // Address
+            document.getElementById('displayAddress').textContent = data.address;
+
+            // Owner Information
+            document.getElementById('ownerName').textContent = data.owner.name;
+            document.getElementById('purchaseDateDisplay').textContent = data.owner.purchaseDate;
+            document.getElementById('ownershipTypeDisplay').textContent = data.owner.ownershipType;
+
+            // Mortgage Information
+            document.getElementById('lenderNameDisplay').textContent = data.mortgage.lender;
+            document.getElementById('mortgageBalanceDisplay').textContent = data.mortgage.balance;
+            document.getElementById('monthlyPaymentDisplay').textContent = data.mortgage.monthlyPayment;
+            document.getElementById('interestRateDisplay').textContent = data.mortgage.interestRate;
+            document.getElementById('loanStatus').innerHTML = `<span style="color: #10B981; font-weight: 700;">✓ ${data.mortgage.status}</span>`;
+
+            // Insurance Information
+            document.getElementById('insuranceCarrier').textContent = data.insurance.carrier;
+            document.getElementById('insurancePremium').textContent = data.insurance.annualPremium;
+            document.getElementById('insuranceStatus').innerHTML = `<span style="color: #10B981; font-weight: 700;">✓ ${data.insurance.status}</span>`;
+
+            // Property Specs
+            document.getElementById('bedrooms').textContent = data.specs.bedrooms;
+            document.getElementById('bathrooms').textContent = data.specs.bathrooms;
+            document.getElementById('sqft').textContent = data.specs.sqft;
+            document.getElementById('lotSize').textContent = data.specs.lotSize;
+            document.getElementById('yearBuilt').textContent = data.specs.yearBuilt;
+            document.getElementById('propertyTypeDisplay').textContent = data.specs.propertyType;
+
+            // Property Features
+            const featuresGrid = document.getElementById('featuresGrid');
+            featuresGrid.innerHTML = '';
+            data.features.forEach(feature => {
+                const featureTag = document.createElement('div');
+                featureTag.className = 'feature-tag';
+                featureTag.innerHTML = `<i class="fas ${feature.icon}"></i> ${feature.label}`;
+                featuresGrid.appendChild(featureTag);
+            });
+
+            // Pre-fill form fields
+            document.getElementById('currentValue').value = '650000';
+            document.getElementById('purchaseDate').value = '2018-03-15';
+            document.getElementById('mortgageBalance').value = '425000';
+            document.getElementById('lenderName').value = 'Veterans United Home Loans';
+            document.getElementById('monthlyPayment').value = '2450';
+            document.getElementById('interestRate').value = '3.75';
+        }
+
+        // ============================================
+        // FORM SUBMISSION
+        // ============================================
+        
+        function submitApplication() {
+            if (!validateCurrentPage()) {
+                alert('Please complete all required fields before submitting.');
+                return;
+            }
+
+            if (confirm('Are you sure you want to submit your application? Please review all information carefully before proceeding.')) {
+                // Show loading state
+                const submitBtn = event.target;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<div class="loading" style="display: inline-block; width: 16px; height: 16px; border-width: 2px;"></div> Submitting...';
+
+                // Simulate submission
+                setTimeout(() => {
+                    alert('Application Submitted Successfully!\n\nThank you for applying for the VA Equity Home Loan. A veteran banker will review your application and contact you within 24 hours.\n\nApplication ID: VAB-' + Date.now());
+                    
+                    // Reset form or redirect
+                    // window.location.href = '/confirmation';
+                }, 2000);
+            }
+        }
+
+        // ============================================
+        // PHONE NUMBER FORMATTING
+        // ============================================
+        
+        document.getElementById('phone')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value.length <= 3) {
+                    value = `(${value}`;
+                } else if (value.length <= 6) {
+                    value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+                } else {
+                    value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
+                }
+            }
+            e.target.value = value;
+        });
+
+        // SSN Formatting
+        document.getElementById('ssn')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value.length <= 3) {
+                    value = value;
+                } else if (value.length <= 5) {
+                    value = `${value.slice(0, 3)}-${value.slice(3)}`;
+                } else {
+                    value = `${value.slice(0, 3)}-${value.slice(3, 5)}-${value.slice(5, 9)}`;
+                }
+            }
+            e.target.value = value;
+        });
+
+        // ============================================
+        // FILE UPLOAD HANDLERS
+        // ============================================
+        
+        function handleFileUpload(inputId, listId) {
+            const input = document.getElementById(inputId);
+            const list = document.getElementById(listId);
+            
+            input.addEventListener('change', function() {
+                list.innerHTML = '';
+                Array.from(this.files).forEach(file => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    fileItem.innerHTML = `
+                        <div class="file-item-name">
+                            <i class="fas fa-file-pdf"></i> ${file.name}
+                        </div>
+                        <i class="fas fa-times file-item-remove"></i>
+                    `;
+                    list.appendChild(fileItem);
+                });
+            });
+        }
+
+        // Initialize file upload handlers
+        handleFileUpload('trustDocFile', 'trustDocList');
+        handleFileUpload('llcOpFile', 'llcOpList');
+        handleFileUpload('llcArticlesFile', 'llcArticlesList');
+        handleFileUpload('llcGoodStandingFile', 'llcGoodStandingList');
+        handleFileUpload('additionalDocsFile', 'additionalDocsList');
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set signature date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('signatureDate').value = today;
+        });
+    </script>
+</body>
+</html>
