@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VA EHL Application - The Veteran Alliance Bank</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- RESET & GLOBAL VARIABLES --- */
+        :root {
+            --tac-bg: #FCFCFA;
+            --tac-dark: #1F291F;
+            --tac-navy: #0F172A;
+            --tac-red: #B91C1C;
+            --tac-green: #3A4630;
+            --tac-sand: #F5F5F0;
+            --tac-border: #E5E7EB;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--tac-dark);
+            background-color: var(--tac-bg);
+            background-image: 
+                linear-gradient(rgba(252, 252, 250, 0.95), rgba(252, 252, 250, 0.95)),
+                repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(0,0,0,.03) 35px, rgba(0,0,0,.03) 36px),
+                repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(0,0,0,.03) 35px, rgba(0,0,0,.03) 36px);
+            background-attachment: fixed;
+        }
+
+        /* --- TOP BANNER --- */
+        .top-banner {
+            background: linear-gradient(135deg, var(--tac-navy), var(--tac-green));
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--tac-border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            color: var(--tac-navy);
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+            color: var(--tac-red);
+        }
+
+        /* --- MAIN LAYOUT --- */
+        .application-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* --- LEFT SIDE: FORM --- */
+        .form-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-header {
+            margin-bottom: 32px;
+        }
+
+        .form-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--tac-navy);
+            margin-bottom: 12px;
+        }
+
+        .form-header p {
+            color: #6B7280;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--tac-dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: var(--tac-red);
+            margin-left: 4px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--tac-border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-main);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--tac-navy);
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .help-text {
+            font-size: 0.85rem;
+            color: #6B7280;
+            margin-top: 6px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-main);
+        }
+
+        .btn-primary {
+            background-color: var(--tac-red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #991B1B;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(185, 28, 28, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--tac-navy);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1E293B;
+        }
+
+        .api-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: #ECFDF5;
+            color: #065F46;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .api-status i {
+            color: #10B981;
+        }
+
+        /* --- RIGHT SIDE: PROPERTY INFO (FIXED) --- */
+        .property-panel {
+            position: sticky;
+            top: 100px;
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .property-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #E5E7EB, #D1D5DB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .property-image .placeholder {
+            text-align: center;
+            color: #6B7280;
+        }
+
+        .property-image .placeholder i {
+            font-size: 4rem;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .property-details {
+            padding: 24px;
+        }
+
+        .property-address {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--tac-navy);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--tac-border);
+        }
+
+        .info-section {
+            margin-bottom: 24px;
+        }
+
+        .info-section h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--tac-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: #6B7280;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 0.9rem;
+            color: var(--tac-dark);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .property-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--tac-border);
+        }
+
+        .spec-item {
+            text-align: center;
+            padding: 12px;
+            background: var(--tac-sand);
+            border-radius: 8px;
+        }
+
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--tac-navy);
+            display: block;
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .property-features {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--tac-border);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #F3F4F6;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--tac-dark);
+        }
+
+        .feature-tag i {
+            color: var(--tac-red);
+            font-size: 0.9rem;
+        }
+
+        /* --- LOADING STATE --- */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--tac-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- ALERT MESSAGES --- */
+        .alert {
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .alert-info {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            color: #1E40AF;
+        }
+
+        .alert-warning {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            color: #92400E;
+        }
+
+        .alert-success {
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+        }
+
+        .alert i {
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background: var(--tac-green);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .footer-text {
+            color: #D1D5DB;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.75rem;
+            color: #9CA3AF;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            line-height: 1.8;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .application-container {
+                grid-template-columns: 1fr;
+            }
+
+            .property-panel {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-section {
+                padding: 24px;
+            }
+
+            .property-specs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- EDITABLE FIELD INDICATOR --- */
+        .editable-field {
+            position: relative;
+        }
+
+        .editable-field::after {
+            content: '\f044';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+            font-size: 0.9rem;
+            pointer-events: none;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, var(--tac-red), transparent);
+            margin: 40px 0;
+        }
+
+        .progress-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--tac-sand);
+            border-radius: 8px;
+        }
+
+        .progress-step {
+            text-align: center;
+            flex: 1;
+        }
+
+        .progress-step .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--tac-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-weight: 700;
+            color: #6B7280;
+        }
+
+        .progress-step.active .step-number {
+            background: var(--tac-navy);
+            color: white;
+            border-color: var(--tac-navy);
+        }
+
+        .progress-step.completed .step-number {
+            background: var(--tac-red);
+            color: white;
+            border-color: var(--tac-red);
+        }
+
+        .progress-step .step-label {
+            font-size: 0.85rem;
+            color: #6B7280;
+            font-weight: 600;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <i class="fas fa-shield-alt" style="color: #FFD700; margin-right: 10px;"></i>
+        <span>Military-Grade Banking for Those Who Served - 100% Veteran Staffed</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>The Veteran Alliance Bank</span>
+            </a>
+            <div>
+                <button class="btn btn-secondary">Need Help? Talk to a Veteran Banker</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Application Container -->
+    <div class="application-container">
+        <!-- LEFT SIDE: Form Section -->
+        <div class="form-section">
+            <div class="form-header">
+                <h1>VA Equity Home Loan Application</h1>
+                <p>We'll automatically pull property data to minimize your input. Review and edit as needed.</p>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-indicator">
+                <div class="progress-step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Property</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Ownership</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Financial</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Review</div>
+                </div>
+            </div>
+
+            <!-- Alert: API Integration Info -->
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Smart Data Integration:</strong> Enter your property address below and we'll automatically pull property details, mortgage information, tax data, and ownership records from our integrated APIs.
+                </div>
+            </div>
+
+            <!-- Property Address Input (Primary Trigger) -->
+            <div class="form-group">
+                <label for="propertyAddress">
+                    Property Address <span class="required">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="propertyAddress" 
+                    placeholder="Enter your property address (e.g., 123 Main St, Palo Alto, CA 94301)"
+                    autocomplete="street-address"
+                >
+                <div class="help-text">
+                    <i class="fas fa-magic"></i> Start typing and we'll auto-complete your address and pull all available data
+                </div>
+                <div id="apiLoadingStatus" style="display: none; margin-top: 12px;">
+                    <div class="loading"></div>
+                    <span style="margin-left: 12px; color: #6B7280;">Fetching property data from RealEstateAPI...</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" id="fetchDataBtn" style="width: 100%; margin-bottom: 32px;">
+                <i class="fas fa-search"></i> Fetch Property Data
+            </button>
+
+            <div class="section-divider"></div>
+
+            <!-- Additional Form Fields (Shown after data fetch) -->
+            <div id="additionalFields" style="display: none;">
+                <!-- Primary Residence -->
+                <div class="form-group">
+                    <label>Is this your primary residence? <span class="required">*</span></label>
+                    <select id="primaryResidence">
+                        <option value="">Select...</option>
+                        <option value="yes">Yes (Primary Residence)</option>
+                        <option value="no">No (See options below)</option>
+                    </select>
+                </div>
+
+                <!-- Property Use Type (Conditional) -->
+                <div class="form-group" id="propertyUseGroup" style="display: none;">
+                    <label>Property Use Type <span class="required">*</span></label>
+                    <select id="propertyUseType">
+                        <option value="">Select...</option>
+                        <option value="second-home">Second Home / Vacation Home</option>
+                        <option value="investment-sfr">Investment Property (Single Family)</option>
+                        <option value="investment-mfr">Investment Property (Multi-Family)</option>
+                        <option value="investment-commercial">Investment Property (Commercial)</option>
+                        <option value="lot">Lot (Undeveloped Land)</option>
+                        <option value="other">Other (specify)</option>
+                    </select>
+                </div>
+
+                <!-- Property Ownership Type -->
+                <div class="form-group">
+                    <label>Property Ownership Type <span class="required">*</span></label>
+                    <select id="ownershipType">
+                        <option value="">Select...</option>
+                        <option value="sole">Sole Ownership (Individual owns 100%)</option>
+                        <option value="joint">Joint Tenancy (with Right of Survivorship)</option>
+                        <option value="tenancy-common">Tenancy in Common</option>
+                        <option value="tenancy-entirety">Tenancy by the Entirety (Married couples)</option>
+                        <option value="trust-revocable">Revocable Living Trust</option>
+                        <option value="trust-irrevocable">Irrevocable Trust</option>
+                        <option value="llc">Limited Liability Company (LLC)</option>
+                        <option value="corporation">Corporation</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="other">Other Entity</option>
+                    </select>
+                    <div class="help-text">
+                        <i class="fas fa-info-circle"></i> This determines the legal structure of property ownership
+                    </div>
+                </div>
+
+                <!-- Loan Amount Requested -->
+                <div class="form-group">
+                    <label for="loanAmount">Loan Amount Requested <span class="required">*</span></label>
+                    <input 
+                        type="number" 
+                        id="loanAmount" 
+                        placeholder="$50,000 - $500,000"
+                        min="50000"
+                        max="500000"
+                        step="1000"
+                    >
+                    <div class="help-text">
+                        <i class="fas fa-calculator"></i> Must be between $50,000 and $500,000, and cannot exceed 90% of available equity
+                    </div>
+                </div>
+
+                <!-- Property Condition -->
+                <div class="form-group">
+                    <label>Property Condition <span class="required">*</span></label>
+                    <select id="propertyCondition">
+                        <option value="">Select...</option>
+                        <option value="excellent">Excellent (Move-in ready, recently updated)</option>
+                        <option value="good">Good (Well-maintained, minor updates needed)</option>
+                        <option value="average">Average (Functional, some updates needed)</option>
+                        <option value="needs-repairs">Needs Repairs (Significant repairs required)</option>
+                    </select>
+                </div>
+
+                <!-- Planned Improvements -->
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="plannedImprovements" style="width: auto; margin-right: 8px;">
+                        I have planned capital improvements (over $10,000)
+                    </label>
+                    <div class="help-text">
+                        Improvements over $10,000 may qualify for renovation credit
+                    </div>
+                </div>
+
+                <!-- Improvement Details (Conditional) -->
+                <div id="improvementDetails" style="display: none;">
+                    <div class="form-group">
+                        <label for="improvementDescription">Improvement Description</label>
+                        <textarea id="improvementDescription" placeholder="Describe planned improvements (e.g., kitchen remodel, ADU, room addition, new roof)"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="improvementCost">Estimated Improvement Cost</label>
+                        <input type="number" id="improvementCost" placeholder="Minimum $10,000" min="10000">
+                    </div>
+                </div>
+
+                <!-- Insurance Opt-in -->
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="canopyOptIn" style="width: auto; margin-right: 8px;">
+                        I authorize pulling my insurance information from Canopy Connect
+                    </label>
+                    <div class="help-text">
+                        <i class="fas fa-lock"></i> Optional: This helps us verify your insurance coverage faster
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- Submit Button -->
+                <button class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem;">
+                    <i class="fas fa-arrow-right"></i> Continue to Next Step
+                </button>
+
+                <div style="text-align: center; margin-top: 20px; color: #6B7280; font-size: 0.9rem;">
+                    <i class="fas fa-shield-alt"></i> Your information is encrypted and secure
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Property Panel (Fixed) -->
+        <div class="property-panel">
+            <!-- Property Image -->
+            <div class="property-image" id="propertyImageContainer">
+                <div class="placeholder">
+                    <i class="fas fa-home"></i>
+                    <p>Property image will appear here</p>
+                    <small>After entering address</small>
+                </div>
+            </div>
+
+            <!-- Property Details -->
+            <div class="property-details">
+                <div class="property-address" id="displayAddress">
+                    Enter property address to view details
+                </div>
+
+                <!-- Owner Information -->
+                <div class="info-section">
+                    <h3><i class="fas fa-user"></i> Owner Information</h3>
+                    <div class="info-row">
+                        <span class="info-label">Owner Name</span>
+                        <span class="info-value" id="ownerName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Purchase Date</span>
+                        <span class="info-value" id="purchaseDate">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Ownership Type</span>
+                        <span class="info-value" id="ownershipTypeDisplay">-</span>
+                    </div>
+                </div>
+
+                <!-- Mortgage Information -->
+                <div class="info-section">
+                    <h3><i class="fas fa-home"></i> Mortgage Information</h3>
+                    <div class="info-row">
+                        <span class="info-label">Lender</span>
+                        <span class="info-value" id="lenderName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Balance</span>
+                        <span class="info-value" id="mortgageBalance">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Monthly Payment</span>
+                        <span class="info-value" id="monthlyPayment">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Interest Rate</span>
+                        <span class="info-value" id="interestRate">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Loan Status</span>
+                        <span class="info-value" id="loanStatus">-</span>
+                    </div>
+                </div>
+
+                <!-- Insurance Information -->
+                <div class="info-section">
+                    <h3><i class="fas fa-shield-alt"></i> Insurance Information</h3>
+                    <div class="info-row">
+                        <span class="info-label">Carrier</span>
+                        <span class="info-value" id="insuranceCarrier">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Annual Premium</span>
+                        <span class="info-value" id="insurancePremium">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Status</span>
+                        <span class="info-value" id="insuranceStatus">-</span>
+                    </div>
+                </div>
+
+                <!-- Property Specs -->
+                <div class="property-specs">
+                    <div class="spec-item">
+                        <span class="spec-value" id="bedrooms">-</span>
+                        <span class="spec-label">Bedrooms</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="bathrooms">-</span>
+                        <span class="spec-label">Bathrooms</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="sqft">-</span>
+                        <span class="spec-label">Sq Ft</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="lotSize">-</span>
+                        <span class="spec-label">Lot Size</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="yearBuilt">-</span>
+                        <span class="spec-label">Year Built</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value" id="propertyType">-</span>
+                        <span class="spec-label">Type</span>
+                    </div>
+                </div>
+
+                <!-- Property Features -->
+                <div class="property-features">
+                    <h3><i class="fas fa-star"></i> Property Features</h3>
+                    <div class="features-grid" id="featuresGrid">
+                        <!-- Features will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i> The Veteran Alliance Bank
+            </div>
+            <div class="footer-text">
+                The ONLY bank entirely staffed by US Military Veterans
+            </div>
+            <div class="footer-disclaimer">
+                <strong>Important Disclosures:</strong><br>
+                The Veteran Alliance Equity Home Loan (VA EHL) is subject to credit approval and property eligibility. 
+                Loan amounts range from $50,000 to $500,000 and cannot exceed 90% of available equity. 
+                Property must be owner-occupied or meet investment property criteria. 
+                All information provided is encrypted and secure. Member FDIC. Equal Housing Lender.<br><br>
+                
+                <strong>API Data Sources:</strong> Property data is sourced from RealEstateAPI.com (property details, mortgage information, tax records, ownership data). 
+                Insurance information may be sourced from Canopy Connect with customer authorization. 
+                All API-retrieved data is editable by the applicant. Data accuracy is verified during underwriting.<br><br>
+                
+                © 2024 The Veteran Alliance Bank. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // DEMO DATA - Simulating API Responses
+        // ============================================
+        
+        const DEMO_PROPERTY_DATA = {
+            address: "1234 Veterans Way, Palo Alto, CA 94301",
+            image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop",
+            owner: {
+                name: "John & Sarah Veteran",
+                purchaseDate: "March 15, 2018",
+                ownershipType: "Joint Tenancy"
+            },
+            mortgage: {
+                lender: "Veterans United Home Loans",
+                balance: "$425,000",
+                monthlyPayment: "$2,450",
+                interestRate: "3.75%",
+                status: "Current",
+                loanAge: "6 years",
+                startDate: "March 2018"
+            },
+            insurance: {
+                carrier: "USAA Property & Casualty",
+                annualPremium: "$1,850",
+                status: "Active",
+                policyNumber: "USAA-12345678",
+                expirationDate: "March 2025"
+            },
+            specs: {
+                bedrooms: 4,
+                bathrooms: 2.5,
+                sqft: "2,450",
+                lotSize: "0.25 ac",
+                yearBuilt: 2005,
+                propertyType: "Single Family"
+            },
+            features: [
+                { icon: "fa-car", label: "2-Car Garage" },
+                { icon: "fa-fire", label: "Fireplace" },
+                { icon: "fa-snowflake", label: "Central A/C" },
+                { icon: "fa-sun", label: "Solar Panels" },
+                { icon: "fa-tree", label: "Fenced Yard" },
+                { icon: "fa-home", label: "Updated Kitchen" }
+            ],
+            tax: {
+                amount: "$8,500",
+                status: "Current",
+                exempt: false,
+                lastPayment: "December 2023"
+            },
+            liens: {
+                hasLiens: false,
+                lienDetails: []
+            },
+            estimatedValue: "$650,000",
+            availableEquity: "$225,000"
+        };
+
+        // ============================================
+        // EVENT LISTENERS & FORM LOGIC
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const fetchDataBtn = document.getElementById('fetchDataBtn');
+            const propertyAddressInput = document.getElementById('propertyAddress');
+            const additionalFields = document.getElementById('additionalFields');
+            const primaryResidenceSelect = document.getElementById('primaryResidence');
+            const propertyUseGroup = document.getElementById('propertyUseGroup');
+            const plannedImprovementsCheckbox = document.getElementById('plannedImprovements');
+            const improvementDetails = document.getElementById('improvementDetails');
+
+            // Fetch Property Data Button
+            fetchDataBtn.addEventListener('click', function() {
+                const address = propertyAddressInput.value.trim();
+                
+                if (!address) {
+                    alert('Please enter a property address');
+                    return;
+                }
+
+                // Show loading state
+                document.getElementById('apiLoadingStatus').style.display = 'block';
+                fetchDataBtn.disabled = true;
+                fetchDataBtn.innerHTML = '<div class="loading" style="display: inline-block; width: 16px; height: 16px; border-width: 2px;"></div> Fetching Data...';
+
+                // Simulate API call with delay
+                setTimeout(function() {
+                    populatePropertyData(DEMO_PROPERTY_DATA);
+                    
+                    // Hide loading, show success
+                    document.getElementById('apiLoadingStatus').style.display = 'none';
+                    fetchDataBtn.disabled = false;
+                    fetchDataBtn.innerHTML = '<i class="fas fa-check"></i> Data Loaded Successfully';
+                    fetchDataBtn.classList.remove('btn-primary');
+                    fetchDataBtn.classList.add('btn-secondary');
+                    
+                    // Show additional fields
+                    additionalFields.style.display = 'block';
+                    
+                    // Scroll to additional fields
+                    setTimeout(() => {
+                        additionalFields.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 300);
+                }, 2000);
+            });
+
+            // Primary Residence conditional logic
+            primaryResidenceSelect.addEventListener('change', function() {
+                if (this.value === 'no') {
+                    propertyUseGroup.style.display = 'block';
+                } else {
+                    propertyUseGroup.style.display = 'none';
+                }
+            });
+
+            // Planned Improvements conditional logic
+            plannedImprovementsCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    improvementDetails.style.display = 'block';
+                } else {
+                    improvementDetails.style.display = 'none';
+                }
+            });
+        });
+
+        // ============================================
+        // POPULATE PROPERTY DATA FUNCTION
+        // ============================================
+        
+        function populatePropertyData(data) {
+            // Property Image
+            const imageContainer = document.getElementById('propertyImageContainer');
+            imageContainer.innerHTML = `<img src="${data.image}" alt="Property Image">`;
+
+            // Address
+            document.getElementById('displayAddress').textContent = data.address;
+
+            // Owner Information
+            document.getElementById('ownerName').textContent = data.owner.name;
+            document.getElementById('purchaseDate').textContent = data.owner.purchaseDate;
+            document.getElementById('ownershipTypeDisplay').textContent = data.owner.ownershipType;
+
+            // Mortgage Information
+            document.getElementById('lenderName').textContent = data.mortgage.lender;
+            document.getElementById('mortgageBalance').textContent = data.mortgage.balance;
+            document.getElementById('monthlyPayment').textContent = data.mortgage.monthlyPayment;
+            document.getElementById('interestRate').textContent = data.mortgage.interestRate;
+            document.getElementById('loanStatus').innerHTML = `<span style="color: #10B981; font-weight: 700;">✓ ${data.mortgage.status}</span>`;
+
+            // Insurance Information
+            document.getElementById('insuranceCarrier').textContent = data.insurance.carrier;
+            document.getElementById('insurancePremium').textContent = data.insurance.annualPremium;
+            document.getElementById('insuranceStatus').innerHTML = `<span style="color: #10B981; font-weight: 700;">✓ ${data.insurance.status}</span>`;
+
+            // Property Specs
+            document.getElementById('bedrooms').textContent = data.specs.bedrooms;
+            document.getElementById('bathrooms').textContent = data.specs.bathrooms;
+            document.getElementById('sqft').textContent = data.specs.sqft;
+            document.getElementById('lotSize').textContent = data.specs.lotSize;
+            document.getElementById('yearBuilt').textContent = data.specs.yearBuilt;
+            document.getElementById('propertyType').textContent = data.specs.propertyType;
+
+            // Property Features
+            const featuresGrid = document.getElementById('featuresGrid');
+            featuresGrid.innerHTML = '';
+            data.features.forEach(feature => {
+                const featureTag = document.createElement('div');
+                featureTag.className = 'feature-tag';
+                featureTag.innerHTML = `<i class="fas ${feature.icon}"></i> ${feature.label}`;
+                featuresGrid.appendChild(featureTag);
+            });
+        }
+
+        // ============================================
+        // FORM VALIDATION & SUBMISSION
+        // ============================================
+        
+        // Add real-time validation for loan amount
+        document.getElementById('loanAmount')?.addEventListener('input', function() {
+            const value = parseInt(this.value);
+            const min = 50000;
+            const max = 500000;
+            
+            if (value < min) {
+                this.setCustomValidity(`Minimum loan amount is $${min.toLocaleString()}`);
+            } else if (value > max) {
+                this.setCustomValidity(`Maximum loan amount is $${max.toLocaleString()}`);
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+</html>
